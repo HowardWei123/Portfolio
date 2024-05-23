@@ -1,3 +1,3 @@
 # Portfolio
 
-Created using React.
+Created using React and Tailwind.

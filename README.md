@@ -1,3 +1,3 @@
 # Portfolio
 
-Created using Nextjs, React and Tailwind.
+Created using Nextjs, React and Tailwind. (on hold, studying)

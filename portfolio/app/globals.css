@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  li {
+    @apply px-4;
+    @apply cursor-pointer;
+  }
+}
 /*
 :root {
   --foreground-rgb: 0, 0, 0;

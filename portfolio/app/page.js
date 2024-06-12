@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar"
 
 export default function Home() {
   return (
-    <main className="px-10">
+    <main>
       <section className="min-h-screen">
         <NavBar />
       </section>

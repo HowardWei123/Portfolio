@@ -2,14 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@500;500&display=swap');
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../public/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
 @layer base {
-  @font-face {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: medium;
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
-  }
   li {
     @apply px-4;
     @apply cursor-pointer;

@@ -15,29 +15,29 @@ const NavBar = () => {
               src={NavLogo}
               width={200}
               height={200}
-              className="mx-4 cursor-pointer"
+              className="ml-4 cursor-pointer"
             />     
           </Link>
 
           <div>
-            <ul className="ml-4 pt-1 hidden lg:flex">
+            <ul className="ml-4 pt-1 hidden lg:flex text-cyan-500 text-2xl font-Montserrat">
               <Link href='#projects'>
-                <li className="pb-4 transition duration-300 font-bold text-2xl hover:border-b-2 hover:border-blue-600 hover:text-blue-600">
+                <li className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
                   Projects
                 </li>
               </Link>
               <Link href='#about'>
-                <li className="pb-4 transition duration-300 font-bold text-2xl hover:border-b-2 hover:border-blue-600 hover:text-blue-600">
+                <li className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
                   About
                 </li>
               </Link>
               <Link href='#skills'>
-                <li className="pb-4 transition duration-300 font-bold text-2xl hover:border-b-2 hover:border-blue-600 hover:text-blue-600">
+                <li className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
                   Skills
                 </li>
               </Link>
               <Link href='#contact'>
-                <li className="pb-4 transition duration-300 font-bold text-2xl hover:border-b-2 hover:border-blue-600 hover:text-blue-600">
+                <li className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
                   Contact
                 </li>
               </Link>
@@ -47,17 +47,15 @@ const NavBar = () => {
         
         <div className="mt-2">
           <ul className="flex items-center">
-            <div className="lg:hidden">
-              <li>
-                <AiOutlineMenu size={25}/>
-              </li>
-            </div>
+            <li className="lg:hidden px-1">
+              <AiOutlineMenu size={24} className="cursor-pointer" />
+            </li>
 
             <li className="pr-1">
-              <BsMoonStarsFill className="cursor-pointer text-2xl"/>
+              <BsMoonStarsFill size={24} className="cursor-pointer" />
             </li>
             <li>
-              <Link className="transition duration-300 bg-cyan-500 hover:bg-blue-500 text-white px-4 py-2 rounded-md" href="/">
+              <Link className="transition duration-300 bg-cyan-500 hover:bg-blue-500 text-white px-4 py-2 rounded-lg" href="/">
                 Resume
               </Link>
             </li>

@@ -61,7 +61,33 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
+
         
+        
+      </div>
+      <div className="justify-between left-0 top-100 w-full h-100 lg:hidden">
+        <ul className="text-cyan-500 text-2xl font-Montserrat">
+          <Link href="#projects">
+            <li className="transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
+              Projects
+            </li>
+          </Link>
+          <Link href="#about">
+            <li className="transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
+              About
+            </li>
+          </Link>
+          <Link href="#skills">
+            <li className="transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
+              Skills
+            </li>
+          </Link>
+          <Link href="#contact">
+            <li className="transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
+              Contact
+            </li>
+          </Link>
+        </ul>
       </div>
     </nav>
   )

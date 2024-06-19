@@ -8,7 +8,7 @@ import NavLogo from '../public/navImgs/navlogo.png'
 const NavBar = () => {
   return (
     <nav className="fixed w-full h-20 mb-10">
-      <div className="flex justify-between w-full h-20 px-2 py-5 shadow-lg">
+      <div className="flex justify-between w-full h-20 px-2 py-5 shadow-md">
         <div className="flex">
           <Link href='/'>
             <Image
@@ -21,37 +21,44 @@ const NavBar = () => {
 
           <div>
             <ul className="ml-4 pt-1 hidden lg:flex text-cyan-500 text-2xl font-Montserrat">
-              <Link href='#projects'>
-                <li className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
-                  Projects
-                </li>
-              </Link>
-              <Link href='#about'>
-                <li className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
-                  About
-                </li>
-              </Link>
-              <Link href='#skills'>
-                <li className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
-                  Skills
-                </li>
-              </Link>
-              <Link href='#contact'>
-                <li className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
-                  Contact
-                </li>
-              </Link>
+            <li className="cursor-default">
+            <Link className="pb-6 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+              href="#projects">
+              Projects
+            </Link>
+          </li>
+          
+          <li className="cursor-default">
+            <Link className="pb-6 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+              href="#about">
+              About
+            </Link>
+          </li>
+          
+          <li className="cursor-default">
+            <Link className="pb-6 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+              href="#skills">
+              Skills
+            </Link>
+          </li>
+          
+          <li className="cursor-default">
+            <Link className="pb-6 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+              href="#contact">
+              Contact
+            </Link>
+          </li>
             </ul>
           </div>
         </div>
         
         <div className="mt-2">
           <ul className="flex items-center">
-            <li className="lg:hidden px-1">
+            <li className="lg:hidden px-1 cursor-default">
               <AiOutlineMenu size={24} className="cursor-pointer" />
             </li>
 
-            <li className="pr-1">
+            <li className="pr-1 cursor-default">
               <BsMoonStarsFill size={24} className="cursor-pointer" />
             </li>
             <li>
@@ -65,28 +72,35 @@ const NavBar = () => {
         
         
       </div>
-      <div className="justify-between left-0 top-100 w-full h-100 lg:hidden">
-        <ul className="text-cyan-500 text-2xl font-Montserrat">
-          <Link href="#projects">
-            <li className="transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
+      <div className="justify-between left-0 top-100 w-full lg:hidden">
+        <ul className="text-cyan-500 text-center text-2xl font-Montserrat">
+          <li className="py-4 shadow-sm cursor-default">
+            <Link className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+              href="#projects">
               Projects
-            </li>
-          </Link>
-          <Link href="#about">
-            <li className="transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
+            </Link>
+          </li>
+          
+          <li className="py-4 shadow-sm cursor-default">
+            <Link className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+              href="#about">
               About
-            </li>
-          </Link>
-          <Link href="#skills">
-            <li className="transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
+            </Link>
+          </li>
+          
+          <li className="py-4 shadow-sm cursor-default">
+            <Link className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+              href="#skills">
               Skills
-            </li>
-          </Link>
-          <Link href="#contact">
-            <li className="transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500">
+            </Link>
+          </li>
+          
+          <li className="py-4 shadow-sm cursor-default">
+            <Link className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+              href="#contact">
               Contact
-            </li>
-          </Link>
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>

@@ -64,7 +64,7 @@ const NavBar = () => {
           <ul className="flex items-center">
             {/*Mobile Nav*/}
             <li onClick={handleNav} className="lg:hidden px-1 cursor-default">
-              <AiOutlineMenu size={24} className="cursor-pointer" />
+              <AiOutlineMenu size={24} className="transition duration-300 cursor-pointer hover:scale-110" />
             </li>
 
             <li className="pr-1 cursor-default">

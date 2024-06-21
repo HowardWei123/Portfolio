@@ -1,4 +1,6 @@
 import React from 'react'
+import Link from 'next/link'
+import { FaLinkedinIn, FaGithub } from "react-icons/fa"
 
 const Main = () => {
     return (
@@ -7,9 +9,19 @@ const Main = () => {
                 <h1 className='text-4xl font-bold text-gray-700 font-Montserrat'>
                     Hello, I'm <span className='text-blue-800'>Howard Wei</span>
                 </h1>
-                <h3 className='text-lg font-bold font-Montserrat'>
-                    Computer Science Student and AI Enthusiast at <span className='text-blue-600'>San Jose State University </span>
-                </h3>
+                <h2 className='text-xl font-semibold font-Montserrat'>
+                    Computer Science Student and AI Enthusiast at <span className='bg-gradient-to-r from-blue-800 to-yellow-600 inline-block text-transparent bg-clip-text'>San Jose State University</span>
+                </h2>
+
+                <div className='flex mx-auto gap-6 text-4xl'>
+                    <Link href='https://www.linkedin.com/in/weihoward/'>
+                        <FaLinkedinIn className='transition duration-300 hover:text-blue-500 hover:scale-110'/>
+                    </Link>
+
+                    <Link href='https://github.com/HowardWei123'>
+                        <FaGithub className='transition duration-300 hover:text-blue-500 hover:scale-110'/>
+                    </Link>
+                </div>
             </div>
         </div>
     )

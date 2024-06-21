@@ -4,8 +4,8 @@ import Main from "../components/Main"
 
 export default function Home() {
   return (
-    <main>
-      <section className="flex flex-col justify-center w-full h-full">
+    <main className="min-h-screen">
+      <section className="flex flex-col justify-center items-center w-full h-full">
         <NavBar />
         <Main />
       </section>

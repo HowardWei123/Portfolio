@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { FaLinkedinIn, FaGithub } from "react-icons/fa"
+import { BiLogoGmail } from "react-icons/bi"
 
 const Main = () => {
     return (
@@ -13,9 +14,14 @@ const Main = () => {
                     Computer Science Student and AI Enthusiast at <span className='bg-gradient-to-r from-blue-800 to-yellow-600 inline-block text-transparent bg-clip-text'>San Jose State University</span>
                 </h2>
 
-                <div className='flex mx-auto gap-6 text-4xl'>
+                {/*Main Buttons*/}
+                <div className='flex mx-auto gap-12 text-4xl'>
                     <Link href='https://www.linkedin.com/in/weihoward/'>
                         <FaLinkedinIn className='transition duration-300 hover:text-blue-500 hover:scale-110'/>
+                    </Link>
+
+                    <Link href='#contact'>
+                        <BiLogoGmail className='transition duration-300 hover:text-blue-500 hover:scale-110' />
                     </Link>
 
                     <Link href='https://github.com/HowardWei123'>

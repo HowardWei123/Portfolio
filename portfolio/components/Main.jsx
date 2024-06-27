@@ -5,14 +5,11 @@ import { BiLogoGmail } from "react-icons/bi"
 
 const Main = () => {
     return (
-        <div className='w-full h-[400px] text-center'>
+        <div className='w-full h-[300px] text-center'>
             <div className='flex flex-col mx-auto w-full h-full px-2 gap-8 justify-center items-center shadow-sm'>
                 <h1 className='text-4xl font-bold text-gray-700 font-Montserrat'>
                     Hello, I'm <span className='text-blue-800'>Howard Wei</span>
                 </h1>
-                <h2 className='text-xl font-semibold font-Montserrat'>
-                    Computer Science Student and AI Enthusiast at <span className='bg-gradient-to-r from-blue-800 to-yellow-600 inline-block text-transparent bg-clip-text'>San Jose State University</span>
-                </h2>
 
                 {/*Main Buttons*/}
                 <div className='flex mx-auto gap-12 text-4xl'>

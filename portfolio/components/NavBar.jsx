@@ -28,7 +28,7 @@ const NavBar = () => {
           </Link>
 
           
-          <ul className="ml-4 pt-1 hidden lg:flex text-cyan-500 text-2xl font-Montserrat">
+          <ul className="ml-4 pt-1 hidden lg:flex text-cyan-500 text-2xl font-semibold font-Montserrat">
             <li className="cursor-default">
               <Link className="pb-6 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
                 href="#about">
@@ -82,8 +82,8 @@ const NavBar = () => {
       </div>
 
       {/*Mobile Nav*/}
-      <div className={nav ? "justify-between left-0 top-100 w-full shadow-md bg-white" : "hidden"}>
-        <ul className="text-cyan-500 text-center text-2xl font-Montserrat">
+      <div className={nav ? "justify-between left-0 top-100 w-full lg:hidden shadow-md" : "hidden lg:hidden"}>
+        <ul className="text-cyan-500 text-center text-2xl font-semibold font-Montserrat">
           <li className="py-4 cursor-default">
             <Link className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
               href="#about">

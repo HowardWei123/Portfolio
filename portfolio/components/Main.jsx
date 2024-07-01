@@ -6,7 +6,7 @@ import { BiLogoGmail } from "react-icons/bi"
 const Main = () => {
     return (
         <div className='w-full h-[300px] text-center'>
-            <div className='flex flex-col mx-auto w-full h-full px-2 gap-8 justify-center items-center shadow-sm'>
+            <div className='flex flex-col mx-auto w-full h-full px-2 gap-8 justify-center items-center'>
                 <h1 className='text-4xl font-bold text-gray-700 font-Montserrat'>
                     Hello, I'm <span className='text-blue-800'>Howard Wei</span>
                 </h1>

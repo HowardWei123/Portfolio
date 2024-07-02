@@ -65,14 +65,14 @@ const NavBar = () => {
             
             {/*Mobile Nav Button*/}
             <li onClick={handleNav} className="lg:hidden px-1 cursor-default">
-              <AiOutlineMenu size={24} className="transition duration-100 hover:scale-110 cursor-pointer" />
+              <AiOutlineMenu size={24} className="transition duration-200 hover:scale-110 cursor-pointer" />
             </li>
 
             <li className="pr-1 cursor-default">
-              <BsMoonStarsFill size={24} className="transition duration-100 hover:scale-110 cursor-pointer" />
+              <BsMoonStarsFill size={24} className="transition duration-200 hover:scale-110 cursor-pointer" />
             </li>
             <li>
-              <Link className="transition duration-300 bg-cyan-500 hover:bg-blue-500 text-white px-4 py-2 rounded-lg" href="/">
+              <Link className="transition duration-300 bg-cyan-500 hover:bg-blue-500 text-white px-4 py-2 rounded-lg" href="/HWResume.pdf">
                 Resume
               </Link>
             </li>

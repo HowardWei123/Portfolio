@@ -2,20 +2,35 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {BsMoonStarsFill} from 'react-icons/bs'
 import {AiOutlineMenu} from 'react-icons/ai'
 import NavLogo from '../public/navImgs/navlogo.png'
 
 const NavBar = () => {
   const [nav, setNav] = useState(false)
+  const [dropdownVisible, setDropDownVis] = useState(false)
 
   const handleNav = () => {
     setNav(!nav)
   }
 
+  const handleScroll = () => {
+    const scroll = window.scrollY
+    console.log(scroll, dropdownVisible)
+
+    const isVisible = scroll <= 40
+    if (isVisible === dropdownVisible) return
+    setDropDownVis(isVisible)
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [dropdownVisible, handleScroll])
+
   return (
-    <nav className="w-full h-20 mb-8">
+    <nav id='home' className="top-0 left-0 w-full h-20 bg-white">
       <div className="flex justify-between w-full h-20 px-2 py-5 shadow-md">
         <div className="flex">
           <Link href='/'>
@@ -82,38 +97,52 @@ const NavBar = () => {
       </div>
 
       {/*Mobile Nav*/}
-      <div className={nav ? "justify-between left-0 top-100 w-full lg:hidden shadow-md" : "hidden lg:hidden"}>
-        <ul className="text-cyan-500 text-center text-2xl font-semibold font-Montserrat">
-          <li className="py-4 cursor-default">
-            <Link className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
-              href="#about">
-              About
-            </Link>
-          </li>
-          
-          <li className="py-4 cursor-default">
-            <Link className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
-              href="#projects">
-              Projects
-            </Link>
-          </li>
-          
-          <li className="py-4 cursor-default">
-            <Link className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
-              href="#skills">
-              Skills
-            </Link>
-          </li>
-          
-          <li className="py-4 cursor-default">
-            <Link className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
-              href="#contact">
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </div>
-
+      {dropdownVisible && (
+        <div className={nav ? 'lg:hidden fixed justify-between left-0 top-100 w-full h-64 bg-white shadow-md' : 'hidden'}>
+          <ul className="text-cyan-500 text-center text-2xl font-semibold font-Montserrat">
+            <li className="py-4 cursor-default">
+              <Link
+                onClick={() => setNav(false)}
+                className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+                href="#about"
+              >
+                About
+              </Link>
+            </li>
+            
+            <li className="py-4 cursor-default">
+              <Link
+                onClick={() => setNav(false)}
+                className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+                href="#projects"
+              >
+                Projects
+              </Link>
+            </li>
+            
+            <li className="py-4 cursor-default">
+              <Link
+                onClick={() => setNav(false)}
+                className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+                href="#skills"
+              >
+                Skills
+              </Link>
+            </li>
+            
+            <li className="py-4 cursor-default">
+              <Link
+                onClick={() => setNav(false)}
+                className="pb-4 transition duration-300 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+                href="#contact"
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )
+    }
     </nav>
   )
 }

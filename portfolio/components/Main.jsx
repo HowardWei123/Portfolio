@@ -1,11 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
 import { FaLinkedinIn, FaGithub } from "react-icons/fa"
-import { BiLogoGmail } from "react-icons/bi"
 
 const Main = () => {
     return (
-        <div className='w-full pt-16 pb-4 text-center'>
+        <div className='w-full mt-24 pb-4 text-center'>
             <div className='flex flex-col mx-auto w-full h-full px-2 gap-8 justify-center items-center'>
                 <h1 className='text-4xl font-bold text-gray-700 font-Montserrat'>
                     Hello, I'm <span className='text-blue-800'>Howard Wei</span>

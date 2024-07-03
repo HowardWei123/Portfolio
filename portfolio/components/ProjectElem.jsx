@@ -2,9 +2,9 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const ProjectElem = ({title, bgImg, techUsed, projUrl}) => {
+const ProjectElem = ({title, bgImg, projUrl}) => {
   return (
-    <div className='relative flex item-center justify-center h-auto w-full group rounded-xl p-4 group hover:bg-cyan-500'>
+    <div className='relative flex item-center justify-center h-auto w-full group rounded-xl p-4 group hover:bg-cyan-600'>
         <Image
             src={bgImg}
             width={400}

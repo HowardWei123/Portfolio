@@ -1,6 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 import ProjectElem from './ProjectElem'
 import ByTechImg from '../public/projImgs/byTechProj.png'
 import EmotionAIImg from '../public/projImgs/EmotionAIData.png'
@@ -17,15 +15,13 @@ const Projects = () => {
               <ProjectElem 
                 title='ByTech'
                 bgImg={ByTechImg}
-                techUsed=''
-                projUrl='/'
+                projUrl='/bytech'
               />
 
               <ProjectElem 
                 title='EmotionAI'
                 bgImg={EmotionAIImg}
-                techUsed=''
-                projUrl='/'
+                projUrl='/emotionai'
               />
             </div>
         </div>

@@ -9,7 +9,7 @@ import NavLogo from '../public/navImgs/navlogo.png'
 
 const NavBar = () => {
   const [nav, setNav] = useState(false)
-  const [dropdownVisible, setDropDownVis] = useState(false)
+  const [dropdownVisible, setDropDownVis] = useState(true)
 
   const handleNav = () => {
     setNav(!nav)

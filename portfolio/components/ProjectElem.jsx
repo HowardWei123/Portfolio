@@ -2,24 +2,33 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const ProjectElem = ({title, bgImg, projUrl}) => {
-  return (
-    <div className='relative flex item-center justify-center h-auto w-full group rounded-xl p-4 group hover:bg-cyan-600'>
-        <Image
-            src={bgImg}
-            width={400}
-            height={400}
-            className='rounded-xl shadow-xl group-hover:opacity-10'
-        />
-        <div className='hidden justify-center items-center gap-8 group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'>
-            <h3 className='text-2xl text-white text-center'>
+const ProjectElem = ({title, bgImg, projectDescription}) => {
+    const dictionary = {
+        'string': 'logo'
+    }
+    return (
+    <div className='flex flex-row justify-center'>
+        <div className='rounded-xl p-4 w-[50%] flex justify-end'>
+            <Image
+                src={bgImg}
+                width={400}
+                height={230}
+                className='rounded-xl shadow-xl'
+            />
+        </div>
+        <div className='flex flex-col justify-center w-[50%] p-4'>
+            <h1 className='font-Montserrat text-2xl text-cyan-700 font-bold'>
                 {title}
-            </h3>
-            <Link href={projUrl}>
-                <p className='text-center p-2 mt-2 rounded-lg bg-white text-gray-700 font-semibold text-lg cursor-pointer'>
-                    More Info
-                </p>
-            </Link>
+            </h1>
+            <p className='text-gray-700 py-2'>
+                {projectDescription}
+            </p>
+            <p>
+                techUsed
+            </p>
+            <p>
+                github and site links
+            </p>
         </div>
     </div>
   )

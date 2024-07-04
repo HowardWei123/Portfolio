@@ -11,17 +11,32 @@ const Projects = () => {
                 Projects
             </h1>
 
-            <div className='grid lg:grid-cols-2 gap-8'>
+            <div className='grid gap-8 w-[60%]'>
               <ProjectElem 
                 title='ByTech'
                 bgImg={ByTechImg}
-                projUrl='/bytech'
+                projectDescription={
+                  `
+                  Classroom built for programming teachers. 
+                  Allows teachers to host classrooms and publish coding assignments for their students. 
+                  Gives teachers a leetcode-esque platform for them to publish 
+                  their own programming problems, create test cases, and manage assignments. 
+                  Compiles python into WASM to be run in browsers.
+                  `
+                }
               />
 
               <ProjectElem 
                 title='EmotionAI'
                 bgImg={EmotionAIImg}
-                projUrl='/emotionai'
+                projectDescription={
+                  `
+                  AI model that utilizes computer vision algorithms to detect emotions based on facial expressions.
+                  Trained and tested on 36,000 48x48 grayscale images of 7 different classifications.
+                  Achieved over 50% testing accuracy on all emotions, and 80% on 3 emotions.
+                  Deployable via webcam.
+                  `
+                }
               />
             </div>
         </div>

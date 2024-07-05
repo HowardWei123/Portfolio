@@ -7,7 +7,7 @@ const Main = () => {
         <div className='w-full mt-24 pb-4 text-center'>
             <div className='flex flex-col mx-auto w-full h-full px-2 gap-8 justify-center items-center'>
                 <h1 className='text-4xl font-bold text-slate-700 font-Montserrat dark:text-slate-200'>
-                    Hello, I'm <span className='text-blue-700 dark:text-blue-500'>Howard Wei</span>
+                    Hello, I&apos;m <span className='text-blue-700 dark:text-blue-500'>Howard Wei</span>
                 </h1>
 
                 {/*Main Buttons*/}

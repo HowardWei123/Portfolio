@@ -7,10 +7,10 @@ const About = () => {
                 About
             </h1>
             <h2 className='text-xl text-slate-800 dark:text-slate-200 font-semibold font-Montserrat py-4 mx-8'>
-                I'm a Computer Science Student at <span className='bg-gradient-to-r from-blue-800 to-yellow-600 dark:from-blue-600 dark:to-yellow-500 inline-block text-transparent bg-clip-text'>San Jose State University</span>.
+                I&apos;m a Computer Science Student at <span className='bg-gradient-to-r from-blue-800 to-yellow-600 dark:from-blue-600 dark:to-yellow-500 inline-block text-transparent bg-clip-text'>San Jose State University</span>.
             </h2>
             <h2 className='text-xl text-slate-800 dark:text-slate-200 font-semibold font-Montserrat mx-8'>
-                I'm passionate about web development and artifical intelligence.
+                I&apos;m passionate about web development and artifical intelligence.
             </h2>
         </div>
     )

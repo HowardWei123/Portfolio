@@ -1,7 +1,7 @@
 import React from 'react'
 import ProjectElem from './ProjectElem'
 
-import ByTechImg from '../public/projImgs/byTechProj.png'
+import ByTechImg from '../public/projImgs/ByTechProj.png'
 import EmotionAIImg from '../public/projImgs/EmotionAIData.png'
 
 const Projects = () => {

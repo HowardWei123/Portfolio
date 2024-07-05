@@ -1,5 +1,6 @@
 import React from 'react'
 import ProjectElem from './ProjectElem'
+
 import ByTechImg from '../public/projImgs/byTechProj.png'
 import EmotionAIImg from '../public/projImgs/EmotionAIData.png'
 
@@ -7,7 +8,7 @@ const Projects = () => {
   return (
     <div id='projects' className='w-full'>
         <div className='flex flex-col mx-auto px-2 py-8 gap-4 justify-center items-center'>
-            <h1 className='text-4xl py-4 text-cyan-700 font-Montserrat font-bold'>
+            <h1 className='text-4xl py-4 text-cyan-700 dark:text-cyan-500 font-Montserrat font-bold'>
                 Projects
             </h1>
 
@@ -15,6 +16,7 @@ const Projects = () => {
               <ProjectElem 
                 title='ByTech'
                 bgImg={ByTechImg}
+                tech='Next | React | Typescript | Tailwind'
                 projectDescription={
                   `
                   Classroom built for programming teachers. 
@@ -24,11 +26,13 @@ const Projects = () => {
                   Compiles python into WASM to be run in browsers.
                   `
                 }
+                url="https://github.com/Teddygat0r/dualhacks"
               />
 
               <ProjectElem 
                 title='EmotionAI'
                 bgImg={EmotionAIImg}
+                tech='Python | Tensorflow | Keras | OpenCV'
                 projectDescription={
                   `
                   AI model that utilizes computer vision algorithms to detect emotions based on facial expressions.
@@ -37,6 +41,7 @@ const Projects = () => {
                   Deployable via webcam.
                   `
                 }
+                url="https://github.com/HowardWei123/EmotionAI"
               />
             </div>
         </div>

@@ -45,28 +45,28 @@ const NavBar = ({handleDark}) => {
           
           <ul className="ml-4 pt-1 hidden lg:flex text-cyan-500 dark:text-cyan-400 text-2xl font-semibold font-Montserrat">
             <li className="cursor-default">
-              <Link className="pb-6 ease-in duration-200 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+              <Link className="pb-6 ease-in duration-200 hover:border-b-2 hover:border-sky-600 hover:text-sky-500"
                 href="#about">
                 About
               </Link>
             </li>
           
             <li className="cursor-default">
-              <Link className="pb-6 ease-in duration-200 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+              <Link className="pb-6 ease-in duration-200 hover:border-b-2 hover:border-sky-600 hover:text-sky-500"
                 href="#projects">
                 Projects
               </Link>
             </li>
             
             <li className="cursor-default">
-              <Link className="pb-6 ease-in duration-200 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+              <Link className="pb-6 ease-in duration-200 hover:border-b-2 hover:border-sky-500 hover:text-sky-500"
                 href="#skills">
                 Skills
               </Link>
             </li>
             
             <li className="cursor-default">
-              <Link className="pb-6 ease-in duration-200 hover:border-b-2 hover:border-blue-500 hover:text-blue-500"
+              <Link className="pb-6 ease-in duration-200 hover:border-b-2 hover:border-sky-500 hover:text-sky-500"
                 href="#contact">
                 Contact
               </Link>

@@ -2,7 +2,7 @@ import React from 'react'
 import ProjectElem from './ProjectElem'
 
 import ByTechImg from '../public/projImgs/ByTechProj.png'
-import EmotionAIImg from '../public/projImgs/EmotionAIData.png'
+import EmotionAIImg from '../public/projImgs/EmotionAIDemo.png'
 
 const Projects = () => {
   return (
@@ -37,7 +37,7 @@ const Projects = () => {
                   `
                   AI model that utilizes computer vision algorithms to detect emotions based on facial expressions.
                   Trained and tested on 36,000 48x48 grayscale images of 7 different classifications.
-                  Achieved over 50% testing accuracy on all emotions, and 80% on 3 emotions.
+                  Achieved over 60% testing accuracy on all emotions, and 80% on 3 emotions.
                   Deployable via webcam.
                   `
                 }

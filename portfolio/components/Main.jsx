@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { FaLinkedinIn, FaGithub } from "react-icons/fa"
+import { TiSocialLinkedinCircular } from "react-icons/ti";
 
 const Main = () => {
     return (
@@ -11,14 +12,12 @@ const Main = () => {
                 </h1>
 
                 {/*Main Buttons*/}
-                <div className='flex mx-auto gap-8'>
-                    <div className='border border-black dark:border-slate-200 hover:border-blue-500 rounded-full p-2 transition duration-300 hover:text-blue-500 hover:scale-125'>
-                        <Link href='https://www.linkedin.com/in/weihoward/'>
-                            <FaLinkedinIn className='text-3xl text-slate-700 dark:text-slate-200'/>
-                        </Link>
-                    </div>
+                <div className='flex justify-center items-center mx-auto gap-8 text-slate-700 dark:text-slate-200'>
+                    <Link href='https://www.linkedin.com/in/weihoward/'>
+                        <TiSocialLinkedinCircular className='text-6xl scale-105 rounded-full transition duration-300 hover:text-blue-500 hover:scale-125'/>
+                    </Link>
                     <Link href='https://github.com/HowardWei123'>
-                        <FaGithub className='text-5xl rounded-full transition duration-300 text-slate-700 dark:text-slate-200 hover:text-blue-500 hover:scale-125'/>
+                        <FaGithub className='text-5xl rounded-full transition duration-300 hover:text-blue-500 hover:scale-125'/>
                     </Link>
                 </div>
             </div>

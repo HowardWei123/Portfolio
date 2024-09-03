@@ -16,7 +16,7 @@ export default function Home() {
   }
   return (
     <main className={darkMode ? 'dark' : ''}>
-      <section className="flex flex-col justify-center items-center w-full h-full bg-slate-200 dark:bg-slate-800">
+      <section className="flex flex-col justify-center items-center w-full h-full gap-32 bg-slate-200 dark:bg-slate-800">
         <NavBar handleDark={handleDark}/>
         <Main />
         <About />

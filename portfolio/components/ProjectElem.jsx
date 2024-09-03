@@ -23,11 +23,9 @@ const ProjectElem = ({title, bgImg, tech, projectDescription, url}) => {
                 <p className='font-Montserrat text-cyan-600 dark:text-cyan-400 font-semibold'>
                     {tech}
                 </p>
-                <div className='text-gray-700 dark:text-slate-200'>
-                    <Link href={url}>
-                        <FaGithub className='text-4xl transition duration-300 hover:text-blue-500 hover:scale-125'/>
-                    </Link>
-                </div>
+                <Link href={url}>
+                    <FaGithub className='text-4xl transition duration-300 text-gray-700 dark:text-slate-200 hover:text-blue-500 dark:hover:text-blue-500 hover:scale-125'/>
+                </Link>
             </div>
         </div>
         <div className='hidden lg:flex flex-col justify-center w-[50%] p-4'>
@@ -41,11 +39,9 @@ const ProjectElem = ({title, bgImg, tech, projectDescription, url}) => {
                 <p className='font-Montserrat text-cyan-600 dark:text-cyan-400 font-semibold'>
                     {tech}
                 </p>
-                <div className='text-gray-700 dark:text-slate-200'>
-                    <Link href={url}>
-                        <FaGithub className='text-4xl transition duration-300 hover:text-blue-500 hover:scale-125'/>
-                    </Link>
-                </div>
+                <Link href={url}>
+                    <FaGithub className='text-4xl transition duration-300 text-gray-700 dark:text-slate-200 hover:text-blue-500 dark:hover:text-blue-500 hover:scale-125'/>
+                </Link>
             </div>
         </div>
     </div>

@@ -32,7 +32,7 @@ const NavBar = ({handleDark}) => {
   return (
     <nav id='home' className="top-0 left-0 w-full h-20 bg-slate-300 dark:bg-slate-500">
       <div className="flex justify-between w-full h-20 px-2 py-5 shadow-md">
-        <div className="flex">
+        <div className="flex items-center">
           <Link href='/'>
             <Image
               src={NavLogo}

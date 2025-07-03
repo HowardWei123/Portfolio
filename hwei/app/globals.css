@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --card-background: #ffffff;
+  --card-border: #f1f5f9;
+  --slate-color-100: #f1f5f9;
+  --slate-color-400: #94a3b8;
+  --slate-color-500: #64748b;
+  --slate-color-600: #475569;
+  --slate-color-800: #1e293b;
+}
+
+/* Removed @theme inline block */
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --card-background: #1e293b;
+  --card-border: #334155;
+}
+
+/* Ensure smooth transitions for all theme changes */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    /* @apply transition-colors duration-300; */
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-duration: 300ms;
+  }
+}
+
+@layer components {
+  .section-padding {
+    padding-left: 1rem;   /* px-4 */
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .section-padding {
+      padding-left: 1.5rem; /* sm:px-6 */
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-left: 2rem;   /* lg:px-8 */
+      padding-right: 2rem;
+    }
+  }
+  
+  .container-max {
+    max-width: 80rem; /* max-w-7xl */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .gradient-text {
+    background-image: linear-gradient(to right, #2563eb, #06b6d4, #1d4ed8); /* from-blue-600 via-cyan-500 to-blue-700 */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .card-hover {
+    transition-property: all;
+    transition-duration: 300ms;
+    box-shadow: none;
+  }
+  .card-hover:hover {
+    box-shadow: 0 10px 15px -3px rgba(16, 24, 40, 0.1), 0 4px 6px -4px rgba(16, 24, 40, 0.1); /* hover:shadow-lg */
+    transform: translateY(-0.25rem); /* hover:-translate-y-1 */
+  }
+  
+  .nav-link {
+    position: relative;
+    padding-left: 0.75rem; /* px-3 */
+    padding-right: 0.75rem;
+    padding-top: 0.5rem; /* py-2 */
+    padding-bottom: 0.5rem;
+    font-size: 1rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    transition-property: color;
+    transition-duration: 200ms;
+  }
+  .nav-link:hover {
+    color: #3b82f6; /* hover:text-blue-500 */
+  }
+  .dark .nav-link:hover {
+    color: #22d3ee; /* dark:hover:text-cyan-400 */
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* h-0.5 */
+    background-image: linear-gradient(to right, #3b82f6, #06b6d4); /* from-blue-500 to-cyan-500 */
+    transition-property: all;
+    transition-duration: 300ms;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* Text color utilities */
+  .text-primary {
+    color: var(--text-primary);
+  }
+  
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+  
+  .text-muted {
+    color: var(--text-muted);
+  }
+  
+  /* Background utilities */
+  .bg-card {
+    background-color: var(--card-background);
+  }
+  
+  .border-card {
+    border-color: var(--card-border);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--slate-color-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--slate-color-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--slate-color-500);
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: var(--slate-color-800);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--slate-color-600);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--slate-color-500);
+}

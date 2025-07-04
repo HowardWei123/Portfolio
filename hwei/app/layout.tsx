@@ -4,17 +4,11 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Howard Wei - Computer Science Portfolio',
-  description: 'Computer Science undergraduate student passionate about software development, machine learning, and creating innovative solutions.',
-  keywords: ['Computer Science', 'Software Development', 'Machine Learning', 'React', 'Next.js', 'TypeScript', 'Portfolio'],
+  title: 'Howard Wei | SWE & AI',
+  description: 'Howard Wei: Software Engineer experienced in software development, machine learning, and creating innovative solutions.',
+  keywords: ['Computer Science', 'Software Development', 'Machine Learning', 'Cloud Computing','AWS', 'Python', 'React', 'Next.js', 'TypeScript'],
   authors: [{ name: 'Howard Wei' }],
   creator: 'Howard Wei',
-  openGraph: {
-    title: 'Howard Wei - Computer Science Portfolio',
-    description: 'Computer Science undergraduate student passionate about software development, machine learning, and creating innovative solutions.',
-    type: 'website',
-    locale: 'en_US',
-  },
 }
 
 export default function RootLayout({

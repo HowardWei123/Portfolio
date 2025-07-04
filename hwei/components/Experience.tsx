@@ -1,40 +1,16 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 interface ExperienceItem {
   title: string;
   organization: string;
   period: string;
   description: string;
   achievements: string[];
+  skills: string[];
   type: 'work' | 'club';
 }
 
 const Experience = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const element = document.getElementById('experience');
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element);
-      }
-    };
-  }, []);
 
   const experiences: ExperienceItem[] = [
     {
@@ -43,11 +19,12 @@ const Experience = () => {
       period: 'May 2025 - Present',
       description: 'Pioneered LLM-driven visualization platform that processes and visualizes large datasets to help researchers and clinicians understand complex biological data.',
       achievements: [
-        'Developed a Python-based data processing pipeline that transforms raw data into a format suitable for visualization.',
+        'Developed a Python-based data processing pipeline that transforms raw data from Postgres into a format suitable for visualization.',
         'Created a Vue-based visualization dashboard that allows users to interact with the data and explore patterns and relationships.',
         'Integrated agentic analysis tools to provide insights and recommendations for data interpretation through AWS (Bedrock, Lambda, and S3).',
         'Collaborated with a team of researchers and clinicians to ensure the platform meets their needs and provides meaningful insights.',
       ],
+      skills: ['Python', 'Vue.js', 'AWS', 'PostgreSQL', 'Data Visualization', 'LLM', 'GitLab', 'Jira', 'Agile', 'Scrums', 'Team Collaboration'],
       type: 'work'
     },
     {
@@ -56,10 +33,11 @@ const Experience = () => {
       period: 'Sept 2024 - Dec 2024',
       description: 'Led the design and development of a machine learning-powered paper trading platform and managed a cross-university ML team.',
       achievements: [
-        'Built a platform that analyzes investor trading habits and provides actionable insights using GPT-4o and Groq APIs across 7 financial metrics.',
+        'Built a platform on AWS (Lambda, EC2, RDS) that analyzes investor trading habits and provides actionable insights using GPT-4o and Groq APIs across 7 financial metrics.',
         'Recruited, onboarded, and managed a team of 25 ML engineers from 5 universities, fostering collaboration through Agile (Kanban), GitHub Pro, and Jira.',
-        'Integrated real-time and historical market data from Alpaca Markets REST API into a robust MySQL database.',
+        'Integrated real-time and historical market data from Django REST API from Alpaca Markets into a robust MySQL database.',
       ],
+      skills: ['Python', 'AWS', 'Machine Learning', 'MySQL', 'Django REST', 'Agile', 'Kanban', 'GitHub Pro', 'Jira', 'Team Leadership'],
       type: 'club'
     },
     {
@@ -72,6 +50,7 @@ const Experience = () => {
         'Created a responsive and interactive frontend with React, Tailwind CSS, and SWR for seamless data fetching.',
         'Collaborated effectively on a team of developers using Git workflows, GitHub project boards, and rigorous code reviews.',
       ],
+      skills: ['React', 'PostgreSQL', 'Tailwind CSS', 'SWR', 'RESTful API', 'Git', 'GitHub', 'Full-stack Development', 'Team Collaboration'],
       type: 'club'
     },
     {
@@ -86,6 +65,7 @@ const Experience = () => {
         'Co-organized fundraising initiatives to support club operations and partner charities.',
 
       ],
+      skills: ['Nuxt', 'Vue', 'TypeScript', 'Tailwind CSS', 'Event Management', 'Project Coordination', 'Fundraising', 'Community Building', 'Tournament Organization'],
       type: 'club'
     }
   ];
@@ -94,15 +74,15 @@ const Experience = () => {
   const clubExperiences = experiences.filter(exp => exp.type === 'club');
 
   return (
-    <section id="experience" className="py-20 bg-slate-50 dark:bg-slate-800">
+    <section id="experience" className="py-20">
       <div className="container-max section-padding">
-        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-12 backdrop-opacity-80">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="gradient-text">Experience</span>
             </h2>
-            <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
               My professional work experience and leadership roles in student organizations
             </p>
           </div>
@@ -111,7 +91,7 @@ const Experience = () => {
             {/* Work Experience */}
             <div className="space-y-8">
               <div className="text-center lg:text-left">
-                <h3 className="text-3xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                <h3 className="text-3xl font-semibold text-slate-100 mb-2">
                   Work Experience
                 </h3>
                 <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto lg:mx-0 rounded-full"></div>
@@ -119,30 +99,41 @@ const Experience = () => {
 
               <div className="space-y-6">
                 {workExperiences.map((experience, index) => (
-                  <div key={index} className="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-lg card-hover">
+                  <div key={index} className="bg-slate-700/60 p-6 rounded-xl shadow-lg card-hover">
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
+                        <h4 className="text-lg font-semibold text-slate-100">
                           {experience.title}
                         </h4>
-                        <p className="text-blue-600 dark:text-cyan-400 font-medium">
+                        <p className="text-cyan-400 font-medium">
                           {experience.organization}
                         </p>
                       </div>
-                      <span className="text-sm text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-600 px-3 py-1 rounded-full">
+                      <span className="text-sm text-slate-400 bg-slate-600/60 px-3 py-1 rounded-full">
                         {experience.period}
                       </span>
                     </div>
                     
-                    <p className="text-slate-700 dark:text-slate-300 mb-4 leading-relaxed">
+                    <p className="text-slate-300 mb-4 leading-relaxed">
                       {experience.description}
                     </p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {experience.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-blue-900/30 text-blue-300 text-sm rounded-full"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                     
                     <ul className="hidden md:flex md:flex-col md:space-y-2">
                       {experience.achievements.map((achievement, achievementIndex) => (
                         <li key={achievementIndex} className="flex items-start">
                           <span className="text-blue-500 mr-2 mt-1">•</span>
-                          <span className="text-slate-700 dark:text-slate-300 text-sm">
+                          <span className="text-slate-300 text-sm">
                             {achievement}
                           </span>
                         </li>
@@ -156,7 +147,7 @@ const Experience = () => {
             {/* Club Experience */}
             <div className="space-y-8">
               <div className="text-center lg:text-left">
-                <h3 className="text-3xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                <h3 className="text-3xl font-semibold text-slate-100 mb-2">
                   Leadership & Clubs
                 </h3>
                 <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto lg:mx-0 rounded-full"></div>
@@ -164,30 +155,41 @@ const Experience = () => {
 
               <div className="space-y-6">
                 {clubExperiences.map((experience, index) => (
-                  <div key={index} className="bg-white dark:bg-slate-700 p-6 rounded-xl shadow-lg card-hover">
+                  <div key={index} className="bg-slate-700/60 p-6 rounded-xl shadow-lg card-hover">
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
+                        <h4 className="text-lg font-semibold text-slate-100">
                           {experience.title}
                         </h4>
-                        <p className="text-purple-600 dark:text-purple-400 font-medium">
+                        <p className="text-purple-400 font-medium">
                           {experience.organization}
                         </p>
                       </div>
-                      <span className="text-sm text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-600 px-3 py-1 rounded-full">
+                      <span className="text-sm text-slate-400 bg-slate-600/60 px-3 py-1 rounded-full">
                         {experience.period}
                       </span>
                     </div>
                     
-                    <p className="text-slate-700 dark:text-slate-300 mb-4 leading-relaxed">
+                    <p className="text-slate-300 mb-4 leading-relaxed">
                       {experience.description}
                     </p>
+                    
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {experience.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-purple-900/30 text-purple-300 text-sm rounded-full"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                     
                     <ul className="hidden md:flex md:flex-col md:space-y-2">
                       {experience.achievements.map((achievement, achievementIndex) => (
                         <li key={achievementIndex} className="flex items-start">
                           <span className="text-purple-500 mr-2 mt-1">•</span>
-                          <span className="text-slate-700 dark:text-slate-300 text-sm">
+                          <span className="text-slate-300 text-sm">
                             {achievement}
                           </span>
                         </li>

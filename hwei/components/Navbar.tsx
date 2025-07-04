@@ -1,19 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -32,11 +22,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-3xl transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-transparent text-white' 
-        : 'bg-transparent text-white'
-    }`}>
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-3xl transition-all duration-300 bg-transparent text-white">
       <div className="container-max section-padding">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}

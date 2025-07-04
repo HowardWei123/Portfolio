@@ -1,22 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 0);
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // set initial state
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
-    <footer className="bg-slate-900 dark:bg-slate-950 text-slate-200 py-12">
+    <footer className="backdrop-blur-xs border-t border-cyan-400/50 p-12 backdrop-opacity-80">
       <div className="container-max section-padding">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           {/* Logo and Description */}
@@ -105,7 +93,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-slate-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div className="border-t border-cyan-400/50 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-slate-300 text-sm">
             © {currentYear} Howard Wei. All rights reserved.
           </p>
@@ -134,17 +122,6 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        {/* Scroll to Top Button */}
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className={`fixed bottom-8 right-8 z-50 w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform
-            ${showScrollTop ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-          aria-label="Scroll to top"
-        >
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 15V5M10 5L5 10M10 5L15 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
       </div>
     </footer>
   );

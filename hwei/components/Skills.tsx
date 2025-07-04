@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 interface Skill {
@@ -10,28 +9,6 @@ interface Skill {
 }
 
 const Skills = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const element = document.getElementById('skills');
-    if (element) {
-      observer.observe(element);
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element);
-      }
-    };
-  }, []);
 
   const skills: Skill[] = [
     // Programming Languages
@@ -56,6 +33,7 @@ const Skills = () => {
     { name: 'Django REST', category: 'Backend', icon: '/icons/django.svg' },
     { name: 'MongoDB', category: 'Backend', icon: '/icons/mongodb.svg' },
     { name: 'PostgreSQL', category: 'Backend', icon: '/icons/postgresql.svg' },
+    { name: 'MySQL', category: 'Backend', icon: '/icons/mysql.svg' },
     { name: 'Firebase', category: 'Backend', icon: '/icons/firebase.svg' },
     
     // Tools & DevOps
@@ -93,15 +71,15 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-white dark:bg-slate-800">
+    <section id="skills" className="py-20">
       <div className="container-max section-padding">
-        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-12 backdrop-opacity-80">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="gradient-text">Skills & Expertise</span>
             </h2>
-            <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
               My technical skills and proficiency levels across various technologies
             </p>
           </div>
@@ -110,7 +88,7 @@ const Skills = () => {
           <div className="space-y-12">
             {categories.map((category) => (
               <div key={category} className="space-y-6">
-                <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-100 flex items-center">
+                <h3 className="text-2xl font-semibold text-slate-100 flex items-center">
                   <span className={`w-1 h-8 bg-gradient-to-b ${getCategoryColor(category)} rounded-full mr-4`}></span>
                   {category}
                 </h3>
@@ -121,7 +99,7 @@ const Skills = () => {
                     .map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex items-center space-x-3 p-4 bg-white dark:bg-slate-700 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-slate-200 dark:border-slate-600"
+                        className="flex items-center space-x-3 p-4 bg-slate-700/60 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-slate-600"
                       >
                         {skill.icon.startsWith('/') ? (
                           <Image 
@@ -134,7 +112,7 @@ const Skills = () => {
                         ) : (
                           <span className="text-2xl">{skill.icon}</span>
                         )}
-                        <span className="font-medium text-slate-800 dark:text-slate-200">
+                        <span className="font-medium text-slate-100">
                           {skill.name}
                         </span>
                       </div>
@@ -146,46 +124,52 @@ const Skills = () => {
 
           {/* Certifications, Awards & Languages */}
           <div className="mt-16 grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-slate-700 dark:to-slate-800 p-6 rounded-xl">
-              <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">
+            <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 p-6 rounded-xl">
+              <h4 className="text-xl font-semibold text-slate-100 mb-4">
                 Certifications
               </h4>
-              <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+              <ul className="space-y-2 text-slate-300">
                 <li className="flex items-center">
-                  <span className="text-blue-500 mr-2">✓</span>
-                  GIAC Foundational Cybersecurity Technologies (GFACT)
-                </li>
-                <li className="flex items-center">
-                  <span className="text-blue-500 mr-2">✓</span>
-                  National Cyber Scholar
+                  <span className="text-blue-400 mr-2">
+                    ✓ GIAC Foundational Cybersecurity Technologies (GFACT)
+                  </span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-slate-700 dark:to-slate-800 p-6 rounded-xl">
-              <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">
+            <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 p-6 rounded-xl">
+              <h4 className="text-xl font-semibold text-slate-100 mb-4">
                 Awards & Recognition
               </h4>
-              <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+              <ul className="space-y-2 text-slate-300">
                 <li className="flex items-center">
-                  <span className="text-purple-500 mr-2">🏆</span>
-                  Dean&apos;s List (4 semesters)
+                  <span className="text-cyan-400 mr-2">
+                    🏆 Dean&apos;s Scholar (4 semesters)
+                  </span>
+                  
+                </li>
+                <li className="flex items-center">
+                  <span className="text-cyan-400 mr-2">
+                    🏆 National Cyber Scholar (2024)
+                  </span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-slate-700 dark:to-slate-800 p-6 rounded-xl">
-              <h4 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">
+            <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 p-6 rounded-xl">
+              <h4 className="text-xl font-semibold text-slate-100 mb-4">
                 Languages
               </h4>
-              <ul className="space-y-2 text-slate-700 dark:text-slate-300">
+              <ul className="space-y-2 text-slate-300">
                 <li className="flex items-center">
-                  <span className="text-emerald-500 mr-2">🌍</span>
-                  English (Native)
+                  <span className="text-emerald-400 mr-2">
+                    🌍 English (Native)
+                  </span>
                 </li>
                 <li className="flex items-center">
-                  <span className="text-emerald-500 mr-2">🌍</span>
-                  Mandarin (Native)
+                  <span className="text-emerald-400 mr-2">
+                    🌍 Mandarin (Native)
+                  </span>
                 </li>
               </ul>
             </div>

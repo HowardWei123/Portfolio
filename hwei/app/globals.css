@@ -1,24 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --text-primary: #1e293b;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  --border-color: #e2e8f0;
-  --card-background: #ffffff;
-  --card-border: #f1f5f9;
-  --slate-color-100: #f1f5f9;
-  --slate-color-400: #94a3b8;
-  --slate-color-500: #64748b;
-  --slate-color-600: #475569;
-  --slate-color-800: #1e293b;
-}
-
-/* Removed @theme inline block */
-
-.dark {
   --background: #0f172a;
   --foreground: #f8fafc;
   --text-primary: #f1f5f9;
@@ -27,6 +9,11 @@
   --border-color: #334155;
   --card-background: #1e293b;
   --card-border: #334155;
+  --slate-color-100: #f1f5f9;
+  --slate-color-400: #94a3b8;
+  --slate-color-500: #64748b;
+  --slate-color-600: #475569;
+  --slate-color-800: #1e293b;
 }
 
 /* Ensure smooth transitions for all theme changes */
@@ -107,10 +94,7 @@ body {
     transition-duration: 200ms;
   }
   .nav-link:hover {
-    color: #3b82f6; /* hover:text-blue-500 */
-  }
-  .dark .nav-link:hover {
-    color: #22d3ee; /* dark:hover:text-cyan-400 */
+    color: #22d3ee;
   }
   .nav-link::after {
     content: '';
@@ -156,27 +140,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--slate-color-100);
+  background: var(--slate-color-800);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--slate-color-400);
+  background: var(--slate-color-600);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--slate-color-500);
-}
-
-/* Dark mode scrollbar */
-.dark ::-webkit-scrollbar-track {
-  background: var(--slate-color-800);
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: var(--slate-color-600);
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
   background: var(--slate-color-500);
 }

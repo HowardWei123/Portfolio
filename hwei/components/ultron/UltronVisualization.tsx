@@ -116,16 +116,19 @@ export function UltronVisualization() {
             animationSpeed={0.5}
             color={cyanColor}
             mousePosition={{ x: mousePosition.x, y: mousePosition.y }}
+            baseRadius={2.5}
           />
           <RotatingFormations
             animationSpeed={0.7}
             color={cyanColor}
             mousePosition={{ x: mousePosition.x, y: mousePosition.y}}
+            baseRadius={3}
           />
           <RotatingFormations
             animationSpeed={1}
             color={cyanColor}
             mousePosition={{ x: mousePosition.x, y: mousePosition.y }}
+            baseRadius={3.5}
           />
           <PulsingSpheres
             animationSpeed={1}

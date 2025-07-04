@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 interface Project {
   id: number;
@@ -13,6 +14,29 @@ interface Project {
 }
 
 const Projects = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById('projects');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, []);
   const projects: Project[] = [
           {
         id: 1,
@@ -36,15 +60,17 @@ const Projects = () => {
 
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-12 md:py-16 lg:py-20">
       <div className="container-max section-padding">
-        <div className="backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-12 backdrop-opacity-80">
+        <div className={`backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
+          ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        >
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">
               <span className="gradient-text">Featured Projects</span>
             </h2>
-            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+            <p className="text-sm md:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto">
               A showcase of my recent work and projects that demonstrate my skills and passion for development
             </p>
           </div>
@@ -52,12 +78,12 @@ const Projects = () => {
 
 
           {/* Featured Projects */}
-          <div className="mb-16">
-            <div className="grid lg:grid-cols-2 gap-8">
+          <div className="mb-12 md:mb-16">
+            <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
               {projects
                 .map((project) => (
                   <div key={project.id} className="bg-slate-700/60 rounded-xl shadow-lg overflow-hidden card-hover">
-                    <div className="h-48 relative overflow-hidden">
+                    <div className="h-40 md:h-48 relative overflow-hidden">
                       <Image 
                         src={project.image} 
                         alt={project.title}
@@ -70,24 +96,24 @@ const Projects = () => {
                         style={{ opacity: 0 }}
                       />
                     </div>
-                    <div className="p-6">
-                      <h4 className="text-xl font-semibold text-slate-100 mb-3">
+                    <div className="p-4 md:p-6">
+                      <h4 className="text-base md:text-lg font-semibold text-slate-100 mb-2 md:mb-3">
                         {project.title}
                       </h4>
-                      <p className="md:flex hidden text-slate-300 mb-4 leading-relaxed">
+                      <p className="md:flex hidden text-xs md:text-sm text-slate-300 mb-3 md:mb-4 leading-relaxed">
                         {project.description}
                       </p>
-                      <div className="flex flex-wrap gap-2 mb-6">
+                      <div className="flex flex-wrap gap-1 md:gap-2 mb-4 md:mb-6">
                         {project.technologies.map((tech) => (
                           <span
                             key={tech}
-                            className="px-3 py-1 bg-blue-900/30 text-blue-300 text-sm rounded-full"
+                            className="px-1 md:px-2 py-1 bg-blue-900/30 text-blue-300 text-xs rounded-full"
                           >
                             {tech}
                           </span>
                         ))}
                       </div>
-                      <div className="flex gap-4">
+                      <div className="flex gap-3 md:gap-4">
                         <a
                           href={project.githubUrl}
                           target="_blank"
@@ -114,8 +140,8 @@ const Projects = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center mt-16">
-            <p className="text-slate-400 mb-6">
+          <div className="text-center mt-12 md:mt-16">
+            <p className="text-xs md:text-sm lg:text-base text-slate-300 mb-4 md:mb-6">
               Interested in working together or want to see more of my work?
             </p>
             <a

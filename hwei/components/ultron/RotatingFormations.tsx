@@ -170,12 +170,14 @@ interface RotatingFormationsProps {
   animationSpeed?: number;
   color?: string;
   mousePosition?: { x: number; y: number };
+  baseRadius?: number;
 }
 
 export function RotatingFormations({
   animationSpeed = 1,
   color = '#00ccff',
-  mousePosition = { x: 0, y: 0 }
+  mousePosition = { x: 0, y: 0 },
+  baseRadius = 2
 }: RotatingFormationsProps) {
   // Extract base color metrics
   const baseColorHue = useMemo(() => {
@@ -214,9 +216,12 @@ export function RotatingFormations({
     // Create a color palette based on the main color
     const hue = baseColorHue;
 
+    // Define relative radius multipliers (maintaining the same proportions)
+    const radiusMultipliers = [0.83, 1.0, 1.17, 1.33, 1.07]; // Based on original values: 2.5, 3, 3.5, 4, 3.2
+
     // Arc 1: Semi-circle on the equator
     result.push({
-      points: createArc(2.5, 0, Math.PI, Math.PI / 2, Math.PI / 8, 10),
+      points: createArc(baseRadius * radiusMultipliers[0], 0, Math.PI, Math.PI / 2, Math.PI / 8, 10),
       color: `hsl(${hue}, 90%, 60%)`,
       rotationAxis: new THREE.Vector3(0, 1, 0.2),
       rotationSpeed: 0.5,
@@ -225,7 +230,7 @@ export function RotatingFormations({
 
     // Arc 2: Quarter circle
     result.push({
-      points: createArc(3, Math.PI / 4, Math.PI * 5 / 4, Math.PI / 4, Math.PI / 6, 12),
+      points: createArc(baseRadius * radiusMultipliers[1], Math.PI / 4, Math.PI * 5 / 4, Math.PI / 4, Math.PI / 6, 12),
       color: `hsl(${hue}, 90%, 55%)`,
       rotationAxis: new THREE.Vector3(0.3, 0.7, 0),
       rotationSpeed: 0.7,
@@ -234,7 +239,7 @@ export function RotatingFormations({
 
     // Arc 3: Small dense arc
     result.push({
-      points: createArc(3.5, 0, Math.PI / 2, Math.PI / 3, Math.PI / 10, 20),
+      points: createArc(baseRadius * radiusMultipliers[2], 0, Math.PI / 2, Math.PI / 3, Math.PI / 10, 20),
       color: `hsl(${hue}, 95%, 65%)`,
       rotationAxis: new THREE.Vector3(0.5, 0.2, 0.8),
       rotationSpeed: 0.9,
@@ -243,7 +248,7 @@ export function RotatingFormations({
 
     // Arc 4: Large sparse arc
     result.push({
-      points: createArc(4, Math.PI / 2, Math.PI * 3 / 2, Math.PI / 2, Math.PI / 5, 8),
+      points: createArc(baseRadius * radiusMultipliers[3], Math.PI / 2, Math.PI * 3 / 2, Math.PI / 2, Math.PI / 5, 8),
       color: `hsl(${hue}, 100%, 50%)`,
       rotationAxis: new THREE.Vector3(0.1, 0.5, 0.2),
       rotationSpeed: 0.4,
@@ -252,7 +257,7 @@ export function RotatingFormations({
 
     // Arc 5: Vertical arc
     result.push({
-      points: createArc(3.2, 0, Math.PI * 2, 0, Math.PI / 4, 15),
+      points: createArc(baseRadius * radiusMultipliers[4], 0, Math.PI * 2, 0, Math.PI / 4, 15),
       color: `hsl(${hue}, 85%, 58%)`,
       rotationAxis: new THREE.Vector3(1, 0.1, 0.1),
       rotationSpeed: 0.6,
@@ -260,7 +265,7 @@ export function RotatingFormations({
     });
 
     return result;
-  }, [baseColorHue]);
+  }, [baseColorHue, baseRadius]);
 
   return (
     <>

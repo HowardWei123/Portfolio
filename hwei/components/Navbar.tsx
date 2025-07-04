@@ -39,7 +39,7 @@ const Navbar = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="nav-link text-lg"
+                className="nav-link text-base lg:text-lg"
               >
                 {item.label}
               </button>
@@ -50,7 +50,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-md text-slate-600 hover:text-blue-500 transition-colors"
+              className="p-2 rounded-md text-slate-300 hover:text-blue-500 transition-colors"
             >
               <svg
                 className="w-6 h-6"
@@ -86,7 +86,7 @@ const Navbar = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left px-3 py-2 text-sm font-medium hover:text-blue-500 hover:bg-slate-100 rounded-md transition-colors"
+                  className="block w-full text-left px-3 py-2 text-sm font-medium hover:text-blue-500 hover:bg-slate-200 rounded-md transition-colors"
                 >
                   {item.label}
                 </button>

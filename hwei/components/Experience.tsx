@@ -1,5 +1,7 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+
 interface ExperienceItem {
   title: string;
   organization: string;
@@ -11,7 +13,29 @@ interface ExperienceItem {
 }
 
 const Experience = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById('experience');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, []);
   const experiences: ExperienceItem[] = [
     {
       title: 'AI Data Scientist Intern',
@@ -74,55 +98,57 @@ const Experience = () => {
   const clubExperiences = experiences.filter(exp => exp.type === 'club');
 
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-12 md:py-16 lg:py-20">
       <div className="container-max section-padding">
-        <div className="backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-12 backdrop-opacity-80">
+        <div className={`backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
+          ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        >
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">
               <span className="gradient-text">Experience</span>
             </h2>
-            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+            <p className="text-sm md:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto">
               My professional work experience and leadership roles in student organizations
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             {/* Work Experience */}
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               <div className="text-center lg:text-left">
-                <h3 className="text-3xl font-semibold text-slate-100 mb-2">
+                <h3 className="text-xl md:text-2xl font-semibold text-slate-100 mb-2">
                   Work Experience
                 </h3>
                 <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto lg:mx-0 rounded-full"></div>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 {workExperiences.map((experience, index) => (
-                  <div key={index} className="bg-slate-700/60 p-6 rounded-xl shadow-lg card-hover">
-                    <div className="flex items-start justify-between mb-4">
+                  <div key={index} className="bg-slate-700/60 p-4 md:p-6 rounded-xl shadow-lg card-hover">
+                    <div className="flex items-start justify-between mb-3 md:mb-4">
                       <div>
-                        <h4 className="text-lg font-semibold text-slate-100">
+                        <h4 className="text-sm md:text-base lg:text-lg font-semibold text-slate-100">
                           {experience.title}
                         </h4>
-                        <p className="text-cyan-400 font-medium">
+                        <p className="text-xs md:text-sm lg:text-base text-cyan-400 font-medium">
                           {experience.organization}
                         </p>
                       </div>
-                      <span className="text-sm text-slate-400 bg-slate-600/60 px-3 py-1 rounded-full">
+                      <span className="text-xs lg:text-sm text-slate-400 bg-slate-600/60 px-2 py-1 rounded-full">
                         {experience.period}
                       </span>
                     </div>
                     
-                    <p className="text-slate-300 mb-4 leading-relaxed">
+                    <p className="text-xs md:text-sm lg:text-base text-slate-300 mb-3 md:mb-4 leading-relaxed">
                       {experience.description}
                     </p>
                     
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-4">
                       {experience.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="px-3 py-1 bg-blue-900/30 text-blue-300 text-sm rounded-full"
+                          className="px-1 md:px-2 py-1 bg-blue-900/30 text-blue-300 text-xs lg:text-sm rounded-full"
                         >
                           {skill}
                         </span>
@@ -133,7 +159,7 @@ const Experience = () => {
                       {experience.achievements.map((achievement, achievementIndex) => (
                         <li key={achievementIndex} className="flex items-start">
                           <span className="text-blue-500 mr-2 mt-1">•</span>
-                          <span className="text-slate-300 text-sm">
+                          <span className="text-xs md:text-sm text-slate-300">
                             {achievement}
                           </span>
                         </li>
@@ -145,40 +171,40 @@ const Experience = () => {
             </div>
 
             {/* Club Experience */}
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               <div className="text-center lg:text-left">
-                <h3 className="text-3xl font-semibold text-slate-100 mb-2">
+                <h3 className="text-xl md:text-2xl font-semibold text-slate-100 mb-2">
                   Leadership & Clubs
                 </h3>
                 <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto lg:mx-0 rounded-full"></div>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 {clubExperiences.map((experience, index) => (
-                  <div key={index} className="bg-slate-700/60 p-6 rounded-xl shadow-lg card-hover">
-                    <div className="flex items-start justify-between mb-4">
+                  <div key={index} className="bg-slate-700/60 p-4 md:p-6 rounded-xl shadow-lg card-hover">
+                    <div className="flex items-start justify-between mb-3 md:mb-4">
                       <div>
-                        <h4 className="text-lg font-semibold text-slate-100">
+                        <h4 className="text-sm md:text-base lg:text-lg font-semibold text-slate-100">
                           {experience.title}
                         </h4>
-                        <p className="text-purple-400 font-medium">
+                        <p className="text-xs md:text-sm lg:text-base text-purple-400 font-medium">
                           {experience.organization}
                         </p>
                       </div>
-                      <span className="text-sm text-slate-400 bg-slate-600/60 px-3 py-1 rounded-full">
+                      <span className="text-xs lg:text-sm text-slate-400 bg-slate-600/60 px-2 py-1 rounded-full">
                         {experience.period}
                       </span>
                     </div>
                     
-                    <p className="text-slate-300 mb-4 leading-relaxed">
+                    <p className="text-xs md:text-sm lg:text-base text-slate-300 mb-3 md:mb-4 leading-relaxed">
                       {experience.description}
                     </p>
                     
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-4">
                       {experience.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="px-3 py-1 bg-purple-900/30 text-purple-300 text-sm rounded-full"
+                          className="px-1 md:px-2 py-1 bg-purple-900/30 text-purple-300 text-xs lg:text-sm rounded-full"
                         >
                           {skill}
                         </span>
@@ -189,7 +215,7 @@ const Experience = () => {
                       {experience.achievements.map((achievement, achievementIndex) => (
                         <li key={achievementIndex} className="flex items-start">
                           <span className="text-purple-500 mr-2 mt-1">•</span>
-                          <span className="text-slate-300 text-sm">
+                          <span className="text-xs md:text-sm text-slate-300">
                             {achievement}
                           </span>
                         </li>

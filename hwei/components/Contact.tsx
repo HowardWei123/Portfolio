@@ -1,6 +1,31 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+
 const Contact = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById('contact');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, []);
   const socialLinks = [
     {
       name: 'GitHub',
@@ -23,31 +48,33 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-12 md:py-16 lg:py-20">
       <div className="container-max section-padding">
-        <div className="backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-12 backdrop-opacity-80">
+        <div className={`backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
+          ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        >
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">
               <span className="gradient-text">Get In Touch</span>
             </h2>
-            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+            <p className="text-sm md:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto">
               I&apos;m always interested in new opportunities and collaborations. 
               Feel free to reach out if you&apos;d like to work together or just say hello!
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className="space-y-6 md:space-y-8">
               <div>
-                <h3 className="text-2xl font-semibold text-slate-100 mb-6">
+                <h3 className="text-lg md:text-xl font-semibold text-slate-100 mb-4 md:mb-6">
                   Let&apos;s Connect
                 </h3>
               </div>
 
               {/* Contact Details */}
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center">
                     <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,8 +82,8 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-200">Email</h4>
-                    <a href="mailto:howardwei21@gmail.com" className="text-cyan-400 hover:underline">
+                    <h4 className="text-xs md:text-sm font-semibold text-slate-200">Email</h4>
+                    <a href="mailto:howardwei21@gmail.com" className="text-xs md:text-sm text-cyan-400 hover:underline">
                       howardwei21@gmail.com
                     </a>
                   </div>
@@ -70,8 +97,8 @@ const Contact = () => {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-200">Location</h4>
-                    <p className="text-slate-400">San Jose, CA</p>
+                    <h4 className="text-xs md:text-sm font-semibold text-slate-200">Location</h4>
+                    <p className="text-xs md:text-sm text-slate-400">San Jose, CA</p>
                   </div>
                 </div>
               </div>
@@ -79,7 +106,7 @@ const Contact = () => {
 
             {/* Social Links */}
             <div>
-                <h4 className="text-2xl font-semibold text-slate-200 mb-4">
+                <h4 className="text-lg md:text-xl font-semibold text-slate-200 mb-4">
                   Socials
                 </h4>
                 <div className="flex space-x-4">
@@ -89,7 +116,7 @@ const Contact = () => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-slate-700/60 rounded-lg flex items-center justify-center text-slate-400 hover:bg-blue-900 hover:text-blue-400 transition-all duration-300"
+                      className="w-12 h-12 bg-slate-700/70 rounded-lg flex items-center justify-center text-slate-400 hover:bg-blue-900 hover:text-blue-400 transition-all duration-300"
                     >
                       {social.icon}
                     </a>

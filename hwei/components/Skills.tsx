@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 interface Skill {
   name: string;
@@ -9,6 +10,29 @@ interface Skill {
 }
 
 const Skills = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.getElementById('skills');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, []);
 
   const skills: Skill[] = [
     // Programming Languages
@@ -71,35 +95,37 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-12 md:py-16 lg:py-20">
       <div className="container-max section-padding">
-        <div className="backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-12 backdrop-opacity-80">
+        <div className={`backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
+          ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        >
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">
               <span className="gradient-text">Skills & Expertise</span>
             </h2>
-            <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+            <p className="text-sm md:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto">
               My technical skills and proficiency levels across various technologies
             </p>
           </div>
 
           {/* Skills Grid */}
-          <div className="space-y-12">
+          <div className="space-y-8 md:space-y-12">
             {categories.map((category) => (
-              <div key={category} className="space-y-6">
-                <h3 className="text-2xl font-semibold text-slate-100 flex items-center">
-                  <span className={`w-1 h-8 bg-gradient-to-b ${getCategoryColor(category)} rounded-full mr-4`}></span>
+              <div key={category} className="space-y-4 md:space-y-6">
+                <h3 className="text-lg md:text-xl font-semibold text-slate-100 flex items-center">
+                  <span className={`w-1 h-8 bg-gradient-to-b ${getCategoryColor(category)} rounded-full mr-3 md:mr-4`}></span>
                   {category}
                 </h3>
                 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
                   {skills
                     .filter((skill) => skill.category === category)
                     .map((skill) => (
                       <div
                         key={skill.name}
-                        className="flex items-center space-x-3 p-4 bg-slate-700/60 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-slate-600"
+                        className="flex items-center space-x-3 p-2 md:p-4 bg-slate-700/60 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-slate-600"
                       >
                         {skill.icon.startsWith('/') ? (
                           <Image 
@@ -107,12 +133,12 @@ const Skills = () => {
                             alt={`${skill.name} logo`}
                             width={32}
                             height={32}
-                            className="w-8 h-8"
+                            className="w-6 h-6 md:w-8 md:h-8"
                           />
                         ) : (
                           <span className="text-2xl">{skill.icon}</span>
                         )}
-                        <span className="font-medium text-slate-100">
+                        <span className="font-medium text-slate-100 text-xs md:text-sm lg:text-base">
                           {skill.name}
                         </span>
                       </div>
@@ -123,12 +149,12 @@ const Skills = () => {
           </div>
 
           {/* Certifications, Awards & Languages */}
-          <div className="mt-16 grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 p-6 rounded-xl">
-              <h4 className="text-xl font-semibold text-slate-100 mb-4">
+          <div className="mt-12 md:mt-16 grid md:grid-cols-3 gap-6 md:gap-8">
+            <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 p-4 md:p-6 rounded-xl">
+              <h4 className="text-base md:text-lg font-semibold text-slate-100 mb-3 md:mb-4">
                 Certifications
               </h4>
-              <ul className="space-y-2 text-slate-300">
+              <ul className="space-y-1 md:space-y-2 text-xs lg:text-sm text-slate-300">
                 <li className="flex items-center">
                   <span className="text-blue-400 mr-2">
                     ✓ GIAC Foundational Cybersecurity Technologies (GFACT)
@@ -137,11 +163,11 @@ const Skills = () => {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 p-6 rounded-xl">
-              <h4 className="text-xl font-semibold text-slate-100 mb-4">
+            <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 p-4 md:p-6 rounded-xl">
+              <h4 className="text-base md:text-lg font-semibold text-slate-100 mb-3 md:mb-4">
                 Awards & Recognition
               </h4>
-              <ul className="space-y-2 text-slate-300">
+              <ul className="space-y-1 md:space-y-2 text-xs lg:text-sm text-slate-300">
                 <li className="flex items-center">
                   <span className="text-cyan-400 mr-2">
                     🏆 Dean&apos;s Scholar (4 semesters)
@@ -156,11 +182,11 @@ const Skills = () => {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 p-6 rounded-xl">
-              <h4 className="text-xl font-semibold text-slate-100 mb-4">
+            <div className="bg-gradient-to-br from-slate-700/60 to-slate-800/60 p-4 md:p-6 rounded-xl">
+              <h4 className="text-base md:text-lg font-semibold text-slate-100 mb-3 md:mb-4">
                 Languages
               </h4>
-              <ul className="space-y-2 text-slate-300">
+              <ul className="space-y-1 md:space-y-2 text-xs lg:text-sm text-slate-300">
                 <li className="flex items-center">
                   <span className="text-emerald-400 mr-2">
                     🌍 English (Native)

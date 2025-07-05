@@ -77,7 +77,7 @@ const Skills = () => {
     { name: 'AWS Bedrock', category: 'AI/ML', icon: '/icons/aws-bedrock.svg' },
     { name: 'OpenAI', category: 'AI/ML', icon: '/icons/openai.svg' },
     { name: 'Groq', category: 'AI/ML', icon: '/icons/groq.svg' },
-    { name: 'TensorFlow', category: 'AI/ML', icon: '/icons/Tensorflow.svg' },
+    { name: 'PyTorch', category: 'AI/ML', icon: '/icons/pytorch.svg' },
     { name: 'OpenCV', category: 'AI/ML', icon: '/icons/icons8-opencv.svg' },
   ];
 

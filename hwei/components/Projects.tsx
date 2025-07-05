@@ -42,7 +42,7 @@ const Projects = () => {
         id: 1,
         title: 'EmotionAI',
         description: 'A real-time emotion recognition system using computer vision and machine learning. The application can detect and classify human emotions from facial expressions with high accuracy.',
-        technologies: ['Python', 'OpenCV', 'TensorFlow', 'Streamlit', 'Neural Networks', 'Computer Vision'],
+        technologies: ['Python', 'OpenCV', 'PyTorch', 'Streamlit', 'Neural Networks', 'Computer Vision'],
         image: '/projImgs/EmotionAIDemo.png',
         githubUrl: 'https://github.com/HowardWei123/EmotionAI',
       },

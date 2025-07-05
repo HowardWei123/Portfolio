@@ -135,7 +135,7 @@ const Experience = () => {
                           {experience.organization}
                         </p>
                       </div>
-                      <span className="text-xs lg:text-sm text-slate-400 bg-slate-600/60 px-2 py-1 rounded-full">
+                      <span className="text-xs lg:text-sm text-slate-400 text-center bg-slate-600/60 px-2 py-1 rounded-full">
                         {experience.period}
                       </span>
                     </div>
@@ -191,7 +191,7 @@ const Experience = () => {
                           {experience.organization}
                         </p>
                       </div>
-                      <span className="text-xs lg:text-sm text-slate-400 bg-slate-600/60 px-2 py-1 rounded-full">
+                      <span className="text-xs lg:text-sm text-slate-400 text-center bg-slate-600/60 px-2 py-1 rounded-full">
                         {experience.period}
                       </span>
                     </div>

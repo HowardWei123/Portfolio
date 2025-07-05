@@ -44,7 +44,7 @@ const About = () => {
               href="/HWResume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block mt-4 md:mt-6 px-4 md:px-6 py-2 md:py-3 border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105"
+              className="inline-block mt-4 md:mt-6 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105"
               download
             >
               Download Resume

@@ -38,9 +38,9 @@ const Experience = () => {
   }, []);
   const experiences: ExperienceItem[] = [
     {
-      title: 'AI Data Scientist Intern',
+      title: 'Informatics Intern',
       organization: 'Cytokinetics',
-      period: 'May 2025 - Present',
+      period: 'May 2025 - Aug 2025',
       description: 'Pioneered LLM-driven visualization platform that processes and visualizes large datasets to help researchers and clinicians understand complex biological data.',
       achievements: [
         'Developed a Python-based data processing pipeline that transforms raw data from Postgres into a format suitable for visualization.',
@@ -48,7 +48,7 @@ const Experience = () => {
         'Integrated agentic analysis tools to provide insights and recommendations for data interpretation through AWS (Bedrock, Lambda, and S3).',
         'Collaborated with a team of researchers and clinicians to ensure the platform meets their needs and provides meaningful insights.',
       ],
-      skills: ['Python', 'Vue.js', 'AWS', 'PostgreSQL', 'Data Visualization', 'LLM', 'GitLab', 'Jira', 'Agile', 'Scrums', 'Team Collaboration'],
+      skills: ['Python', 'Vue.js', 'AWS', 'PostgreSQL', 'Data Visualization', 'LLM', 'GitLab', 'Jira', 'Agile', 'Scrums', 'Spotfire','Team Collaboration'],
       type: 'work'
     },
     {

@@ -29,7 +29,7 @@ const About = () => {
   return (
     <section id="about" className="py-12 md:py-16 lg:py-20">
       <div className="container-max section-padding">
-        <div className={`backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
+        <div className={`backdrop-blur-xl border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
           ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
           {/* Section Header */}
@@ -116,6 +116,8 @@ const About = () => {
                     'Machine Learning',
                     'Data Science',
                     'Fullstack Development',
+                    'Systems Architecture',
+                    'Bioinformatics',
                     'Open Source',
                     'Problem Solving',
                     'Data Structures',
@@ -125,6 +127,8 @@ const About = () => {
                     'Cybersecurity',
                     'Gaming',
                     'Sports',
+                    'Formula 1',
+                    'Rock Climbing',
                     'Entertainment'
                   ].map((interest, index) => (
                     <span

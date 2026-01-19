@@ -41,6 +41,11 @@ const Skills = () => {
     { name: 'JavaScript', category: 'Languages', icon: '/icons/icons8-javascript.svg' },
     { name: 'TypeScript', category: 'Languages', icon: '/icons/icons8-typescript.svg' },
     { name: 'C++', category: 'Languages', icon: '/icons/cpp.svg' },
+    { name: 'C', category: 'Languages', icon: '/icons/c.svg' },
+    { name: 'MATLAB', category: 'Languages', icon: '/icons/matlab.svg' },
+    { name: 'SQL', category: 'Languages', icon: '/icons/sql.svg' },
+    { name: 'R', category: 'Languages', icon: '/icons/r.svg' },
+    { name: 'Bash', category: 'Languages', icon: '/icons/bash-icon-svgrepo-com.svg' },
     
     // Frontend
     { name: 'React', category: 'Frontend', icon: '/icons/icons8-react-native.svg' },
@@ -49,6 +54,7 @@ const Skills = () => {
     { name: 'Vue.js', category: 'Frontend', icon: '/icons/vue.svg' },
     { name: 'Nuxt.js', category: 'Frontend', icon: '/icons/nuxt.svg' },
     { name: 'Django', category: 'Frontend', icon: '/icons/django.svg' },
+    { name: 'Streamlit', category: 'Frontend', icon: '/icons/streamlit.svg' },
     { name: 'HTML', category: 'Frontend', icon: '/icons/icons8-html-5.svg' },
     { name: 'CSS', category: 'Frontend', icon: '/icons/icons8-css3.svg' },
     
@@ -70,15 +76,18 @@ const Skills = () => {
     { name: 'Azure', category: 'Tools', icon: '/icons/azure.svg' },
     { name: 'VS Code', category: 'Tools', icon: '/icons/vscode.svg' },
     { name: 'Postman', category: 'Tools', icon: '/icons/postman.svg' },
-    { name: 'Streamlit', category: 'Tools', icon: '/icons/streamlit.svg' },
+    { name: 'Jira', category: 'Tools', icon: '/icons/jira.svg' },
 
     // AI & Machine Learning
     { name: 'LangChain', category: 'AI/ML', icon: '/icons/langchain.svg' },
+    { name: 'CrewAI', category: 'AI/ML', icon: '/icons/crewai-color.svg' },
+    { name: 'ChromaDB', category: 'AI/ML', icon: '/icons/chromadb.svg' },
     { name: 'AWS Bedrock', category: 'AI/ML', icon: '/icons/aws-bedrock.svg' },
     { name: 'OpenAI', category: 'AI/ML', icon: '/icons/openai.svg' },
     { name: 'Groq', category: 'AI/ML', icon: '/icons/groq.svg' },
     { name: 'PyTorch', category: 'AI/ML', icon: '/icons/pytorch.svg' },
     { name: 'OpenCV', category: 'AI/ML', icon: '/icons/icons8-opencv.svg' },
+    { name: 'Keras', category: 'AI/ML', icon: '/icons/keras.svg' },
   ];
 
   const categories = ['Languages', 'Frontend', 'Backend', 'Tools', 'AI/ML'];
@@ -97,7 +106,7 @@ const Skills = () => {
   return (
     <section id="skills" className="py-12 md:py-16 lg:py-20">
       <div className="container-max section-padding">
-        <div className={`backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
+        <div className={`backdrop-blur-xl border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
           ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
           {/* Section Header */}
@@ -170,7 +179,7 @@ const Skills = () => {
               <ul className="space-y-1 md:space-y-2 text-xs lg:text-sm text-slate-300">
                 <li className="flex items-center">
                   <span className="text-cyan-400 mr-2">
-                    🏆 Dean&apos;s Scholar (4 semesters)
+                    🏆 Dean&apos;s Scholar (5 semesters)
                   </span>
                   
                 </li>
@@ -194,7 +203,7 @@ const Skills = () => {
                 </li>
                 <li className="flex items-center">
                   <span className="text-emerald-400 mr-2">
-                    🌍 Mandarin (Native)
+                    🌍 Mandarin Chinese (Native)
                   </span>
                 </li>
               </ul>

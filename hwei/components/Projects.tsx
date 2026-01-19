@@ -38,19 +38,30 @@ const Projects = () => {
     };
   }, []);
   const projects: Project[] = [
-          {
-        id: 1,
-        title: 'EmotionAI',
-        description: 'A real-time emotion recognition system using computer vision and machine learning. The application can detect and classify human emotions from facial expressions with high accuracy.',
-        technologies: ['Python', 'OpenCV', 'PyTorch', 'Streamlit', 'Neural Networks', 'Computer Vision'],
-        image: '/projImgs/EmotionAIDemo.png',
-        githubUrl: 'https://github.com/HowardWei123/EmotionAI',
-      },
+    {
+      id: 1,
+      title: 'SpotlightAI',
+      description:
+        'A restaurant discovery platform that combines recent Google Places data and historical Yelp reviews into a retrieval-augmented generation pipeline, so users get context-aware suggestions grounded in real customer feedback and their location.',
+      technologies: ['Python', 'GCP', 'ChromaDB', 'FastAPI', 'PostgreSQL', 'Streamlit', 'GeoPy'],
+      image: '/icons/gcp.svg',
+      githubUrl: 'https://github.com/zayba5/Spotlight-AI',
+    },
     {
       id: 2,
+      title: 'EmotionAI',
+      description:
+        'A computer-vision application that detects human emotions from live webcam feeds using a PyTorch model and OpenCV, packaged in a Streamlit interface for interactive experimentation and demos.',
+      technologies: ['Python', 'PyTorch', 'OpenCV', 'Pandas', 'Matplotlib', 'Streamlit'],
+      image: '/projImgs/EmotionAIDemo.png',
+      githubUrl: 'https://github.com/HowardWei123/EmotionAI',
+    },
+    {
+      id: 3,
       title: 'ByTech',
-      description: 'An AI-driven programming classroom for teachers. This website allows teachers to create, edit, and publish programming lessons, using AI assistants for grading and test case generation.',
-      technologies: ['Python','OpenAI', 'Firebase', 'Cloud Firestore', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+      description:
+        'A full-stack online classroom for programming instructors, built with an interactive Next.js frontend on top of Firebase so teachers can design lessons, manage student data, and iterate quickly using Agile workflows.',
+      technologies: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Firebase', 'Pyodide', 'Agile', 'Vercel'],
       image: '/projImgs/ByTechProj.png',
       githubUrl: 'https://github.com/Teddygat0r/dualhacks',
       liveUrl: 'https://dualhacks.vercel.app',
@@ -62,7 +73,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-12 md:py-16 lg:py-20">
       <div className="container-max section-padding">
-        <div className={`backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
+        <div className={`backdrop-blur-xl border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
           ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
           {/* Section Header */}

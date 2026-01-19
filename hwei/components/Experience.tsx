@@ -38,36 +38,67 @@ const Experience = () => {
   }, []);
   const experiences: ExperienceItem[] = [
     {
-      title: 'Informatics Intern',
+      title: 'Software Engineer Intern',
       organization: 'Cytokinetics',
-      period: 'May 2025 - Aug 2025',
-      description: 'Pioneered LLM-driven visualization platform that processes and visualizes large datasets to help researchers and clinicians understand complex biological data.',
+      period: 'May 2025 - Present',
+      description: 'Designing and delivering an LLM-powered analytics platform that helps clinical and scientific teams safely explore massive biomedical datasets and assess risk across complex data systems.',
       achievements: [
-        'Developed a Python-based data processing pipeline that transforms raw data from Postgres into a format suitable for visualization.',
-        'Created a Vue-based visualization dashboard that allows users to interact with the data and explore patterns and relationships.',
-        'Integrated agentic analysis tools to provide insights and recommendations for data interpretation through AWS (Bedrock, Lambda, and S3).',
-        'Collaborated with a team of researchers and clinicians to ensure the platform meets their needs and provides meaningful insights.',
+        'Architected a HIPAA-conscious multi-agent system with LangChain and CrewAI that automates risk analysis on clinical data pipelines while enforcing data-access controls.',
+        'Built an end-to-end agentic AI dashboard in Python on top of AWS Bedrock, Lambda, and S3 that lets hundreds of scientists spin up rich visualizations over millions of records in a single workflow.',
+        'Engineered a custom Spotfire integration using IronPython and JavaScript APIs to render advanced visualizations for complex chemical structures, cutting dashboard load times by roughly 50%.',
+        'Implemented an asynchronous MQTT messaging layer that orchestrates long-running data extraction and visualization jobs and streams incremental results into a Vue.js frontend.',
+        'Provisioned a PostgreSQL-backed memory layer that maintains user and agent context across concurrent sessions, enabling more coherent multi-step analysis.',
       ],
-      skills: ['Python', 'Vue.js', 'AWS', 'PostgreSQL', 'Data Visualization', 'LLM', 'GitLab', 'Jira', 'Agile', 'Scrums', 'Spotfire','Team Collaboration'],
+      skills: [
+        'Python',
+        'LangChain',
+        'CrewAI',
+        'AWS Bedrock',
+        'AWS Lambda',
+        'AWS S3',
+        'Vue.js',
+        'Spotfire',
+        'PostgreSQL',
+        'MQTT',
+        'HIPAA Compliance',
+        'Data Visualization',
+        'GitLab',
+        'Jira',
+        'Agile',
+      ],
       type: 'work'
     },
     {
-      title: 'Lead Machine Learning Engineer',
+      title: 'Software Engineering Lead Developer',
       organization: 'Google Developer Group',
       period: 'Sept 2024 - Dec 2024',
-      description: 'Led the design and development of a machine learning-powered paper trading platform and managed a cross-university ML team.',
+      description: 'Led the end-to-end delivery of a cloud-hosted paper trading platform that analyzes retail trading behavior and surfaces personalized investing insights.',
       achievements: [
-        'Built a platform on AWS (Lambda, EC2, RDS) that analyzes investor trading habits and provides actionable insights using GPT-4o and Groq APIs across 7 financial metrics.',
-        'Recruited, onboarded, and managed a team of 25 ML engineers from 5 universities, fostering collaboration through Agile (Kanban), GitHub Pro, and Jira.',
-        'Integrated real-time and historical market data from Django REST API from Alpaca Markets into a robust MySQL database.',
+        'Deployed the core platform on AWS EC2, RDS, and Lambda to reliably ingest and process simulated trades while keeping operating costs low for a student-led organization.',
+        'Recruited, onboarded, and mentored a distributed team of 25 machine learning engineers across multiple universities, running Kanban sprints in Jira and owning CI/CD pipelines for model testing and deployment.',
+        'Designed and shipped a data ETL pipeline that feeds market signals from MySQL and Django REST services into a Llama 3 70B endpoint, boosting the quality of investor recommendations across seven tracked performance metrics.',
       ],
-      skills: ['Python', 'AWS', 'Machine Learning', 'MySQL', 'Django REST', 'Agile', 'Kanban', 'GitHub Pro', 'Jira', 'Team Leadership'],
+      skills: [
+        'Python',
+        'AWS EC2',
+        'AWS RDS',
+        'AWS Lambda',
+        'Machine Learning',
+        'MySQL',
+        'Django REST',
+        'Llama 3 70B',
+        'Agile',
+        'Kanban',
+        'Jira',
+        'CI/CD',
+        'Team Leadership',
+      ],
       type: 'club'
     },
     {
-      title: 'Fullstack Developer',
+      title: 'Software Engineer',
       organization: 'Machine Learning at SJSU',
-      period: 'Sept 2024 - Present',
+      period: 'Sept 2024 - May 2025',
       description: 'Designed and built a full-stack web application with a cloud-based backend and responsive frontend to serve the ML Club community.',
       achievements: [
         'Developed 5 RESTful API endpoints for saving and retrieving user forum posts and readings with a PostgreSQL cloud database.',
@@ -100,7 +131,7 @@ const Experience = () => {
   return (
     <section id="experience" className="py-12 md:py-16 lg:py-20">
       <div className="container-max section-padding">
-        <div className={`backdrop-blur-xs border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
+        <div className={`backdrop-blur-xl border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
           ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
           {/* Section Header */}

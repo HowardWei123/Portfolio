@@ -38,16 +38,13 @@ const Experience = () => {
   }, []);
   const experiences: ExperienceItem[] = [
     {
-      title: 'Software Engineer Intern',
+      title: 'Clinical Systems Specialist',
       organization: 'Cytokinetics',
-      period: 'May 2025 - Present',
+      period: 'Sept 2025 - Present',
       description: 'Designing and delivering an LLM-powered analytics platform that helps clinical and scientific teams safely explore massive biomedical datasets and assess risk across complex data systems.',
       achievements: [
-        'Architected a HIPAA-conscious multi-agent system with LangChain and CrewAI that automates risk analysis on clinical data pipelines while enforcing data-access controls.',
-        'Built an end-to-end agentic AI dashboard in Python on top of AWS Bedrock, Lambda, and S3 that lets hundreds of scientists spin up rich visualizations over millions of records in a single workflow.',
-        'Engineered a custom Spotfire integration using IronPython and JavaScript APIs to render advanced visualizations for complex chemical structures, cutting dashboard load times by roughly 50%.',
-        'Implemented an asynchronous MQTT messaging layer that orchestrates long-running data extraction and visualization jobs and streams incremental results into a Vue.js frontend.',
-        'Provisioned a PostgreSQL-backed memory layer that maintains user and agent context across concurrent sessions, enabling more coherent multi-step analysis.',
+        'Engineering a HIPAA-compliant multi-agent architecture via LangChain for clinical data system risk analysis.',
+        'Streamlined clinical data review using Python and Pandas, cutting outstanding review time by 10 days.',
       ],
       skills: [
         'Python',
@@ -56,11 +53,35 @@ const Experience = () => {
         'AWS Bedrock',
         'AWS Lambda',
         'AWS S3',
+        'Spotfire',
+        'HIPAA Compliance',
+        'Data Visualization',
+        'GitLab',
+        'Jira',
+        'Agile',
+      ],
+      type: 'work'
+    },
+    {
+      title: 'Informatics Intern',
+      organization: 'Cytokinetics',
+      period: 'May 2025 - Aug 2025',
+      description: 'Designing and delivering an LLM-powered analytics platform that helps clinical and scientific teams safely explore massive biomedical datasets and assess risk across complex data systems.',
+      achievements: [
+        'Built an end-to-end agentic AI dashboard in Python on top of AWS Bedrock, Lambda, and S3 that lets hundreds of scientists spin up rich visualizations over millions of records in a single workflow.',
+        'Created a custom Spotfire integration using IronPython and JavaScript APIs to render advanced visualizations for complex chemical structures, cutting dashboard load times by roughly 50%.',
+        'Implemented an asynchronous MQTT messaging layer that orchestrates long-running data extraction and visualization jobs and streams incremental results into a Vue.js frontend.',
+        'Provisioned a PostgreSQL-backed memory layer that maintains user and agent context across concurrent sessions, enabling more coherent multi-step analysis.',
+      ],
+      skills: [
+        'Python',
+        'AWS Bedrock',
+        'AWS Lambda',
+        'AWS S3',
         'Vue.js',
         'Spotfire',
         'PostgreSQL',
         'MQTT',
-        'HIPAA Compliance',
         'Data Visualization',
         'GitLab',
         'Jira',

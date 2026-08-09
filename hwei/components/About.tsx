@@ -41,13 +41,12 @@ const About = () => {
               Get to know me better and understand my journey in computer science
             </p>
             <a
-              href="/HWResume.pdf"
+              href="/Howard_Wei_resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block mt-4 md:mt-6 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105"
-              download
             >
-              Download Resume
+              Resume
             </a>
           </div>
 
@@ -97,9 +96,6 @@ const About = () => {
                     </h5>
                     <p className="text-xs lg:text-sm text-slate-300">
                       San Jose State University • Expected 2027
-                    </p>
-                    <p className="text-xs lg:text-sm text-slate-300 mt-1">
-                      GPA: 3.7
                     </p>
                   </div>
                 </div>

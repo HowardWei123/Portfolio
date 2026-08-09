@@ -40,6 +40,15 @@ const Projects = () => {
   const projects: Project[] = [
     {
       id: 1,
+      title: 'F1TelemetryML',
+      description:
+        'A machine learning platform for analyzing Formula 1 telemetry data, providing insights into driver performance and car dynamics.',
+      technologies: ['Python', 'GCP', 'PyTorch', 'Pandas', 'Matplotlib', 'Scikit-learn, XGBoost'],
+      image: '/projImgs/f1telemetryml.jpg',
+      githubUrl: 'https://github.com/HowardWei123/f1-telemetry-ml',
+    },
+    {
+      id: 2,
       title: 'SpotlightAI',
       description:
         'A restaurant discovery platform that combines recent Google Places data and historical Yelp reviews into a retrieval-augmented generation pipeline, so users get context-aware suggestions grounded in real customer feedback and their location.',
@@ -48,7 +57,7 @@ const Projects = () => {
       githubUrl: 'https://github.com/zayba5/Spotlight-AI',
     },
     {
-      id: 2,
+      id: 3,
       title: 'EmotionAI',
       description:
         'A computer-vision application that detects human emotions from live webcam feeds using a PyTorch model and OpenCV, packaged in a Streamlit interface for interactive experimentation and demos.',
@@ -57,7 +66,7 @@ const Projects = () => {
       githubUrl: 'https://github.com/HowardWei123/EmotionAI',
     },
     {
-      id: 3,
+      id: 4,
       title: 'ByTech',
       description:
         'A full-stack online classroom for programming instructors, built with an interactive Next.js frontend on top of Firebase so teachers can design lessons, manage student data, and iterate quickly using Agile workflows.',

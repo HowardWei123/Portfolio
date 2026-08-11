@@ -37,6 +37,7 @@ interface FormationProps {
   animationSpeed: number;
   mousePosition?: { x: number; y: number };
   fadeInOut?: boolean;
+  initialRotation?: [number, number, number];
 }
 
 function Formation({
@@ -46,18 +47,32 @@ function Formation({
   rotationSpeed,
   animationSpeed,
   mousePosition = { x: 0, y: 0 },
-  fadeInOut = false
+  fadeInOut = false,
+  initialRotation
 }: FormationProps) {
   const groupRef = useRef<THREE.Group>(null);
   const pointsRef = useRef<THREE.Points>(null);
   const opacityRef = useRef(1);
   const fadeDirectionRef = useRef(-1);
 
-  // State to track current rotation axis and transition
-  const [currentAxis, setCurrentAxis] = useState(new THREE.Vector3().copy(rotationAxis));
-  const [targetAxis, setTargetAxis] = useState(new THREE.Vector3().copy(rotationAxis));
-  const [transitionProgress, setTransitionProgress] = useState(1); // 1 means transition complete
-  const [nextTransitionTime, setNextTransitionTime] = useState(Math.random() * 10 + 5); // Random initial time
+  // Integrate initialRotation prop or fallback to random initial angles on mount
+  const randomInitials = useMemo(() => {
+    return {
+      rotationX: initialRotation ? initialRotation[0] : Math.random() * Math.PI * 2,
+      rotationY: initialRotation ? initialRotation[1] : Math.random() * Math.PI * 2,
+      rotationZ: initialRotation ? initialRotation[2] : Math.random() * Math.PI * 2,
+      direction: Math.random() < 0.5 ? -1 : 1,
+    };
+  }, [initialRotation]);
+
+  const [currentAxis, setCurrentAxis] = useState(
+    () => new THREE.Vector3().copy(rotationAxis).multiplyScalar(randomInitials.direction)
+  );
+  const [targetAxis, setTargetAxis] = useState(
+    () => new THREE.Vector3().copy(rotationAxis).multiplyScalar(randomInitials.direction)
+  );
+  const [transitionProgress, setTransitionProgress] = useState(1);
+  const [nextTransitionTime, setNextTransitionTime] = useState(() => Math.random() * 10 + 5);
 
   const positions = useMemo(() => {
     const positions = new Float32Array(points.length * 3);
@@ -74,18 +89,14 @@ function Formation({
 
     const time = state.clock.getElapsedTime();
     const deltaTime = state.clock.getDelta();
-    const effectiveSpeed = rotationSpeed * animationSpeed;
+    const effectiveSpeed = rotationSpeed * animationSpeed * randomInitials.direction;
 
-    // Mouse influence on rotation
     if (mousePosition) {
-      // Apply subtle mouse influence on current rotation
       groupRef.current.rotation.x += mousePosition.y * deltaTime * 0.5;
       groupRef.current.rotation.y += mousePosition.x * deltaTime * 0.5;
     }
 
-    // Check if it's time to change direction
     if (time > nextTransitionTime && transitionProgress >= 1) {
-      // Set a new target rotation axis
       const newTarget = new THREE.Vector3(
         (Math.random() - 0.5) * 2,
         (Math.random() - 0.5) * 2,
@@ -95,28 +106,22 @@ function Formation({
       setCurrentAxis(new THREE.Vector3().copy(targetAxis));
       setTargetAxis(newTarget);
       setTransitionProgress(0);
-
-      // Set next transition time (between 8-15 seconds later)
       setNextTransitionTime(time + Math.random() * 7 + 8);
     }
 
-    // Handle smooth transition between rotation axes
     if (transitionProgress < 1) {
       setTransitionProgress(Math.min(transitionProgress + deltaTime * 0.2, 1));
 
-      // Smoothly interpolate between current and target axis
       const t = easeSineInOut(transitionProgress);
       rotationAxis.x = currentAxis.x * (1 - t) + targetAxis.x * t;
       rotationAxis.y = currentAxis.y * (1 - t) + targetAxis.y * t;
       rotationAxis.z = currentAxis.z * (1 - t) + targetAxis.z * t;
     }
 
-    // Apply rotation
     groupRef.current.rotation.x += rotationAxis.x * effectiveSpeed * 0.01;
     groupRef.current.rotation.y += rotationAxis.y * effectiveSpeed * 0.01;
     groupRef.current.rotation.z += rotationAxis.z * effectiveSpeed * 0.01;
 
-    // Fade in/out effect
     if (fadeInOut && pointsRef.current.material instanceof THREE.PointsMaterial) {
       const fadeSpeed = 0.005 * animationSpeed;
 
@@ -137,7 +142,14 @@ function Formation({
   });
 
   return (
-    <group ref={groupRef}>
+    <group 
+      ref={groupRef}
+      rotation={[
+        randomInitials.rotationX, 
+        randomInitials.rotationY, 
+        randomInitials.rotationZ
+      ]}
+    >
       <points ref={pointsRef}>
         <bufferGeometry>
           <bufferAttribute
@@ -161,7 +173,6 @@ function Formation({
   );
 }
 
-// Easing function for smooth transitions
 function easeSineInOut(t: number): number {
   return -(Math.cos(Math.PI * t) - 1) / 2;
 }
@@ -171,20 +182,20 @@ interface RotatingFormationsProps {
   color?: string;
   mousePosition?: { x: number; y: number };
   baseRadius?: number;
+  initialRotation?: [number, number, number];
 }
 
 export function RotatingFormations({
   animationSpeed = 1,
   color = '#00ccff',
   mousePosition = { x: 0, y: 0 },
-  baseRadius = 2
+  baseRadius = 2,
+  initialRotation
 }: RotatingFormationsProps) {
-  // Extract base color metrics
   const baseColorHue = useMemo(() => {
     const hex = color.toLowerCase();
 
     if (hex.startsWith('#')) {
-      // Convert hex to HSL
       const r = parseInt(hex.slice(1, 3), 16) / 255;
       const g = parseInt(hex.slice(3, 5), 16) / 255;
       const b = parseInt(hex.slice(5, 7), 16) / 255;
@@ -206,60 +217,62 @@ export function RotatingFormations({
       return h;
     }
 
-    return 45; // Default to gold-ish hue
+    return 45;
   }, [color]);
 
-  // Create multiple formations with different parameters
   const formations = useMemo(() => {
     const result = [];
-
-    // Create a color palette based on the main color
     const hue = baseColorHue;
+    const radiusMultipliers = [0.83, 1.0, 1.17, 1.33, 1.07];
 
-    // Define relative radius multipliers (maintaining the same proportions)
-    const radiusMultipliers = [0.83, 1.0, 1.17, 1.33, 1.07]; // Based on original values: 2.5, 3, 3.5, 4, 3.2
+    const getRandomAxis = () =>
+      new THREE.Vector3(
+        (Math.random() - 0.5) * 2,
+        (Math.random() - 0.5) * 2,
+        (Math.random() - 0.5) * 2
+      ).normalize();
 
-    // Arc 1: Semi-circle on the equator
+    // Arc 1
     result.push({
       points: createArc(baseRadius * radiusMultipliers[0], 0, Math.PI, Math.PI / 2, Math.PI / 8, 10),
       color: `hsl(${hue}, 90%, 60%)`,
-      rotationAxis: new THREE.Vector3(0, 1, 0.2),
+      rotationAxis: getRandomAxis(),
       rotationSpeed: 0.5,
       fadeInOut: true
     });
 
-    // Arc 2: Quarter circle
+    // Arc 2
     result.push({
       points: createArc(baseRadius * radiusMultipliers[1], Math.PI / 4, Math.PI * 5 / 4, Math.PI / 4, Math.PI / 6, 12),
       color: `hsl(${hue}, 90%, 55%)`,
-      rotationAxis: new THREE.Vector3(0.3, 0.7, 0),
+      rotationAxis: getRandomAxis(),
       rotationSpeed: 0.7,
       fadeInOut: false
     });
 
-    // Arc 3: Small dense arc
+    // Arc 3
     result.push({
       points: createArc(baseRadius * radiusMultipliers[2], 0, Math.PI / 2, Math.PI / 3, Math.PI / 10, 20),
       color: `hsl(${hue}, 95%, 65%)`,
-      rotationAxis: new THREE.Vector3(0.5, 0.2, 0.8),
+      rotationAxis: getRandomAxis(),
       rotationSpeed: 0.9,
       fadeInOut: true
     });
 
-    // Arc 4: Large sparse arc
+    // Arc 4
     result.push({
       points: createArc(baseRadius * radiusMultipliers[3], Math.PI / 2, Math.PI * 3 / 2, Math.PI / 2, Math.PI / 5, 8),
       color: `hsl(${hue}, 100%, 50%)`,
-      rotationAxis: new THREE.Vector3(0.1, 0.5, 0.2),
+      rotationAxis: getRandomAxis(),
       rotationSpeed: 0.4,
       fadeInOut: false
     });
 
-    // Arc 5: Vertical arc
+    // Arc 5
     result.push({
       points: createArc(baseRadius * radiusMultipliers[4], 0, Math.PI * 2, 0, Math.PI / 4, 15),
       color: `hsl(${hue}, 85%, 58%)`,
-      rotationAxis: new THREE.Vector3(1, 0.1, 0.1),
+      rotationAxis: getRandomAxis(),
       rotationSpeed: 0.6,
       fadeInOut: true
     });
@@ -275,6 +288,7 @@ export function RotatingFormations({
           {...formation}
           animationSpeed={animationSpeed}
           mousePosition={mousePosition}
+          initialRotation={initialRotation}
         />
       ))}
     </>

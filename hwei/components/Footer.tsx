@@ -29,7 +29,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="footer" className={`backdrop-blur-xl border-t border-cyan-400/50 p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
+    <footer id="footer" className={`backdrop-blur-xl border-t border-cyan-400/50 p-6 md:p-8 lg:p-10 backdrop-opacity-90 transition-opacity duration-1000
       ${isVisible ? 'opacity-100' : 'opacity-0'}`}
     >
       <div className="container-max section-padding">

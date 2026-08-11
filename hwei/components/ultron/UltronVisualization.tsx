@@ -2,7 +2,7 @@
 
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
-import { Suspense, useState, useEffect, useRef } from 'react';
+import { Suspense, useState, useEffect, useRef, useMemo } from 'react';
 import { ParticleSystem } from './ParticleSystem';
 import { RotatingFormations } from './RotatingFormations';
 import { PulsingSpheres } from './PulsingSpheres';
@@ -19,7 +19,39 @@ export function UltronVisualization() {
 
   const cyanColor = "#00ccff";
 
+  // Generate randomized initial angles and rotation direction factors (-1 or 1)
+  const formationConfigs = useMemo(() => [
+    {
+      baseRadius: 2.75,
+      speed: (Math.random() > 0.5 ? 1 : -1) * 0.5,
+      initialRotation: [
+        Math.random() * Math.PI * 2,
+        Math.random() * Math.PI * 2,
+        Math.random() * Math.PI * 2,
+      ] as [number, number, number],
+    },
+    {
+      baseRadius: 3,
+      speed: (Math.random() > 0.5 ? 1 : -1) * 0.7,
+      initialRotation: [
+        Math.random() * Math.PI * 2,
+        Math.random() * Math.PI * 2,
+        Math.random() * Math.PI * 2,
+      ] as [number, number, number],
+    },
+    {
+      baseRadius: 3.25,
+      speed: (Math.random() > 0.5 ? 1 : -1) * 1.0,
+      initialRotation: [
+        Math.random() * Math.PI * 2,
+        Math.random() * Math.PI * 2,
+        Math.random() * Math.PI * 2,
+      ] as [number, number, number],
+    },
+  ], []);
+
   useEffect(() => {
+    // Mouse movement listeners logic...
     const handleMouseMove = (e: MouseEvent) => {
       const currentTime = performance.now();
       const deltaTime = (currentTime - lastTimeRef.current) / 1000;
@@ -83,7 +115,6 @@ export function UltronVisualization() {
     };
 
     animationFrameRef.current = requestAnimationFrame(animateMomentum);
-
     window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
@@ -112,24 +143,18 @@ export function UltronVisualization() {
             radiusVariability={0.15}
             color={cyanColor}
           />
-          <RotatingFormations
-            animationSpeed={0.5}
-            color={cyanColor}
-            mousePosition={{ x: mousePosition.x, y: mousePosition.y }}
-            baseRadius={2.5}
-          />
-          <RotatingFormations
-            animationSpeed={0.7}
-            color={cyanColor}
-            mousePosition={{ x: mousePosition.x, y: mousePosition.y}}
-            baseRadius={3}
-          />
-          <RotatingFormations
-            animationSpeed={1}
-            color={cyanColor}
-            mousePosition={{ x: mousePosition.x, y: mousePosition.y }}
-            baseRadius={3.5}
-          />
+          
+          {formationConfigs.map((config, index) => (
+            <RotatingFormations
+              key={index}
+              animationSpeed={config.speed}
+              color={cyanColor}
+              mousePosition={mousePosition}
+              baseRadius={config.baseRadius}
+              initialRotation={config.initialRotation}
+            />
+          ))}
+
           <PulsingSpheres
             animationSpeed={1}
             color={cyanColor}

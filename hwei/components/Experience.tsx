@@ -41,7 +41,7 @@ const Experience = () => {
       title: 'Clinical Systems Specialist',
       organization: 'Cytokinetics',
       period: 'Sept 2025 - Present',
-      description: 'Designing and delivering an LLM-powered analytics platform that helps clinical and scientific teams safely explore massive biomedical datasets and assess risk across complex data systems.',
+      description: 'Performing data transformations and analytics on clinical datasets for multi-platform clinical data systems, ensuring compliance with HIPAA and other regulatory standards.',
       achievements: [
         'Engineering a HIPAA-compliant multi-agent architecture via LangChain for clinical data system risk analysis.',
         'Streamlined clinical data review using Python and Pandas, cutting outstanding review time by 10 days.',
@@ -66,7 +66,7 @@ const Experience = () => {
       title: 'Informatics Intern',
       organization: 'Cytokinetics',
       period: 'May 2025 - Aug 2025',
-      description: 'Designing and delivering an LLM-powered analytics platform that helps clinical and scientific teams safely explore massive biomedical datasets and assess risk across complex data systems.',
+      description: 'Designing and delivering an LLM-powered analytics platform that helps clinical and scientific teams safely explore massive biomedical datasets.',
       achievements: [
         'Built an end-to-end agentic AI dashboard in Python on top of AWS Bedrock, Lambda, and S3 that lets hundreds of scientists spin up rich visualizations over millions of records in a single workflow.',
         'Created a custom Spotfire integration using IronPython and JavaScript APIs to render advanced visualizations for complex chemical structures, cutting dashboard load times by roughly 50%.',
@@ -152,7 +152,7 @@ const Experience = () => {
   return (
     <section id="experience" className="py-12 md:py-16 lg:py-20">
       <div className="container-max section-padding">
-        <div className={`backdrop-blur-xl border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
+        <div className={`backdrop-blur-xl border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-90 transition-opacity duration-1000
           ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
           {/* Section Header */}

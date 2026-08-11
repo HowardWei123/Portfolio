@@ -37,7 +37,7 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex overflow-hidden pt-16">
       <div className="flex justify-center items-center z-10 container-max section-padding text-center">
-        <div className={`backdrop-blur-xl border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-80 transition-opacity duration-1000
+        <div className={`backdrop-blur-xl border border-cyan-400/50 rounded-2xl p-6 md:p-8 lg:p-10 backdrop-opacity-90 transition-opacity duration-1000
           ${isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
           {/* Greeting */}

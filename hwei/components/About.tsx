@@ -37,9 +37,6 @@ const About = () => {
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">
               <span className="gradient-text">About Me</span>
             </h2>
-            <p className="text-sm md:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto">
-              Get to know me better and understand my journey in computer science
-            </p>
             <a
               href="/Howard_Wei_resume.pdf"
               target="_blank"
@@ -58,14 +55,9 @@ const About = () => {
                     Who I Am
                   </h3>
                   <p className="text-xs md:text-sm lg:text-base text-slate-300 leading-relaxed">
-                    I&apos;m a passionate Computer Science undergraduate student with a deep interest in 
-                    software development, machine learning, and ETL pipelines. My journey in tech
-                    began with curiosity and has evolved into a commitment to creating meaningful solutions.
-                  </p>
-                  <p className="text-xs md:text-sm lg:text-base text-slate-300 leading-relaxed">
-                    I believe in continuous learning and staying up-to-date with the latest technologies. 
-                    When I&apos;m not coding, you can find me learning new frameworks, contributing to open-source  
-                    projects, collaborating with fellow developers on innovative ideas, or watching various forms of entertainment.
+                    I&apos;m a passionate Computer Science undergraduate student with specializtions in 
+                    software engineering, machine learning, and ETL pipelines. My journey in tech
+                    began with modding Minecraft tools at 10 years old and has evolved into a full-fledged career.
                   </p>
                 </div>
 
@@ -75,8 +67,7 @@ const About = () => {
                   </h3>
                   <p className="text-xs md:text-sm lg:text-base text-slate-300 leading-relaxed">
                     I specialize in full-stack development, with expertise in machine learning frameworks and data science 
-                    such as LangChain, PostgreSQL, and AWS. I enjoy building scalable applications and implementing efficient 
-                    algorithms to solve complex problems. My current focus areas include agentic AI and cloud computing
+                    such as LangChain, PostgreSQL, and AWS. My current focus areas include agentic AI and cloud computing
                     oriented around making a difference in people&apos;s lives.
                   </p>
                 </div>
@@ -119,8 +110,6 @@ const About = () => {
                     'Data Structures',
                     'Algorithms',
                     'Cloud Computing',
-                    'UI/UX Design',
-                    'Cybersecurity',
                     'Gaming',
                     'Sports',
                     'Formula 1',
@@ -135,31 +124,6 @@ const About = () => {
                     </span>
                   ))}
                 </div>
-              </div>
-
-              {/* Goals Card */}
-              <div className="bg-slate-700/60 p-4 md:p-6 rounded-xl shadow-lg card-hover">
-                <h4 className="text-base md:text-lg font-semibold text-slate-100 mb-3 md:mb-4">
-                  Career Goals
-                </h4>
-                <ul className="space-y-1 md:space-y-2 text-xs lg:text-sm text-slate-300">
-                  <li className="flex items-start">
-                    <span className="text-blue-500 mr-2">•</span>
-                    Contribute to impactful software projects
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-500 mr-2">•</span>
-                    Master advanced machine learning techniques
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-500 mr-2">•</span>
-                    Build scalable and efficient applications
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-500 mr-2">•</span>
-                    Collaborate with talented developers worldwide
-                  </li>
-                </ul>
               </div>
             </div>
           </div>

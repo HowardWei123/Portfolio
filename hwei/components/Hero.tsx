@@ -57,7 +57,7 @@ const Hero = () => {
           </h2>
           {/* Description */}
           <p className="text-sm md:text-base lg:text-lg xl:text-xl text-slate-300 max-w-4xl mx-auto mb-8 md:mb-12 leading-relaxed">
-            I&apos;m an experienced developer with a passion for software development, machine learning, and creating innovative solutions. 
+            I&apos;m an experienced developer with a passion for software development, machine learning, and data analysis. 
             Currently pursuing my degree while building real-world projects and expanding my technical skills.
           </p>
           {/* CTA Buttons */}

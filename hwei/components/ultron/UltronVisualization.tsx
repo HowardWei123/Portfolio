@@ -22,26 +22,8 @@ export function UltronVisualization() {
   // Generate randomized initial angles and rotation direction factors (-1 or 1)
   const formationConfigs = useMemo(() => [
     {
-      baseRadius: 2.75,
-      speed: (Math.random() > 0.5 ? 1 : -1) * 0.5,
-      initialRotation: [
-        Math.random() * Math.PI * 2,
-        Math.random() * Math.PI * 2,
-        Math.random() * Math.PI * 2,
-      ] as [number, number, number],
-    },
-    {
       baseRadius: 3,
       speed: (Math.random() > 0.5 ? 1 : -1) * 0.7,
-      initialRotation: [
-        Math.random() * Math.PI * 2,
-        Math.random() * Math.PI * 2,
-        Math.random() * Math.PI * 2,
-      ] as [number, number, number],
-    },
-    {
-      baseRadius: 3.25,
-      speed: (Math.random() > 0.5 ? 1 : -1) * 1.0,
       initialRotation: [
         Math.random() * Math.PI * 2,
         Math.random() * Math.PI * 2,
@@ -133,14 +115,14 @@ export function UltronVisualization() {
         <Suspense fallback={null}>
           <ParticleSystem
             count={400}
-            radius={10}
-            radiusVariability={0.8}
+            radius={8}
+            radiusVariability={0.5}
             color={cyanColor}
           />
           <ParticleSystem
-            count={1000}
+            count={900}
             radius={5}
-            radiusVariability={0.15}
+            radiusVariability={0.25}
             color={cyanColor}
           />
           
